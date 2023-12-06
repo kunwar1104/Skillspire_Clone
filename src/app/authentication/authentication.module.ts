@@ -5,6 +5,7 @@ import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
 
 
 @NgModule({
@@ -15,7 +16,14 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
   ],
   imports: [
     CommonModule,
-    AuthenticationRoutingModule
+    AuthenticationRoutingModule,
+    DashboardRoutingModule
+  ],
+  // for temporory testing purpose 
+  exports: [
+    LoginComponent,
+    SignUpComponent,
+    ForgetPasswordComponent
   ]
 })
 export class AuthenticationModule { }

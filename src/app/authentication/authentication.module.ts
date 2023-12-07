@@ -19,7 +19,7 @@ import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
     AuthenticationRoutingModule,
     DashboardRoutingModule
   ],
-  // for temporory testing purpose 
+  
   exports: [
     LoginComponent,
     SignUpComponent,

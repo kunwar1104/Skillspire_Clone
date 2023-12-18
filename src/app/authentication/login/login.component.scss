@@ -1,0 +1,49 @@
+.add-product{
+    position: relative;
+    height: 320px;
+    width:  350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;   
+    background-color: aliceblue;
+    
+}
+.commen-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
+}
+input , button {
+    border-radius: 5px;
+    // background-color: whitesmoke;
+    margin-top: 5px;
+}
+.title{
+    // margin-top: 50px;
+    display: flex;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+button{
+    background-color: rgb(11, 144, 196);
+}
+button:hover {
+background-color: blue;
+}
+input :valid {
+background-color: green;
+}
+input :invalid {
+    background-color: red;
+}
+button :disabled {
+    cursor: not-allowed;
+}
+.error{
+    color: red;
+    font-weight: bold;
+}

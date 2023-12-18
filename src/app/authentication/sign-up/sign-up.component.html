@@ -1,1 +1,89 @@
-<p>sign-up works!</p>
+<!--Modal start  -->
+    <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ title }}</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <!-- Signup start -->
+        <div class="add-product">
+            <!-- <p class="error">{{addProductMessage}}</p> -->
+        <!--  -->
+        <span *ngIf="signinMessage" class="alert">{{message}}</span>
+ 
+          <div class="title">SignUp</div>
+            <form [formGroup]="signinForm" class="commen-form" (ngSubmit)="submit()">
+
+                <input class="form-control" type="text" id="first_name" 
+                       formControlName="first_name" placeholder="Please Enter First Neme ">
+                 <div class="error" *ngIf="signinForm.get('first_name').invalid && signinForm.get('first_name').touched">
+                       <small *ngIf="signinForm.get('first_name').hasError('required')">First Name is Requierd</small>
+                       <small *ngIf="signinForm.get('first_name').hasError('pattern')">Minimum 4  and maximum 15 Alphabat allowed</small>
+                 </div>
+
+                <input class="form-control" type="text" id="last_name"
+                       formControlName="last_name" placeholder="Please Enter Last Neme ">
+                 <div class="error" *ngIf="signinForm.get('last_name').invalid && signinForm.get('last_name').touched">
+                       <small *ngIf="signinForm.get('last_name').hasError('required')">Last Name is Requierd</small>
+                       <small *ngIf="signinForm.get('last_name').hasError('pattern')">Minimum 4  and maximum 15 Alphabat allowed</small>
+
+                 </div>
+
+                <input class="form-control" type="text" id="email_id" 
+                       formControlName="email_id" placeholder="Please Enter Last Email ">
+                 <div class="error" *ngIf="signinForm.get('email_id').invalid && signinForm.get('email_id').touched">
+                     <small *ngIf="signinForm.get('email_id').hasError('required')">Emial is Requierd</small>
+                 </div>
+                <input class="form-control" type="password" id="password" formControlName="password"
+                       placeholder="Please Enter Last Password"> 
+                 <div class="error" *ngIf="signinForm.get('password').invalid && signinForm.get('password').touched">
+                   <small *ngIf="signinForm.get('password').hasError('required')">Password is Requierd</small>
+                   <small *ngIf="signinForm.get('password').hasError('pattern')">Password Contaian Maximum 8 characters   </small>
+
+                 </div>
+
+                <input class="form-control" type="text" id="phone_no" formControlName="phone_no" 
+                       placeholder="Please Enter Phone Number">
+                 <div class="error" *ngIf="signinForm.get('phone_no').invalid && signinForm.get('phone_no').touched">
+                   <small *ngIf="signinForm.get('phone_no').hasError('required')">Phone Number is Requierd</small>
+                   <small *ngIf="signinForm.get('phone_no').hasError('pattern')">10 Digits Number Only </small>
+                 </div>    
+
+                <input class="form-control" type="text" id="referral_code" formControlName="referral_code" 
+                       placeholder="Please Enter ReferralCode  ">
+                 <div class="error" *ngIf="signinForm.get('referral_code').invalid && signinForm.get('referral_code').touched">
+                   <small *ngIf="signinForm.get('referral_code').hasError('required')">Referral Code is Requierd</small>
+                   <!-- <small *ngIf="signinForm.get('referral_code').hasError('pattern')">10 Digits Number Only </small> -->
+                 </div>  
+
+                <label for="is_student" >
+                <input type="checkbox" formControlName="is_student" id="is_student" required >
+                       &nbsp;I am a Student</label>
+                     
+                <label for="receive_newsletter" >
+                <input type="checkbox" id="receive_newsletter" formControlName="receive_newsletter" required>
+                 I wish to receive newsletter from Learn Academy.</label>
+
+                <label for="terms" >
+                <input type="checkbox" id="terms" formControlName="terms" required>&nbsp; I agree to all Terms & Conditions.*</label>
+                 
+                <!-- <input type="text" placeholder="Resume" id="resume_path" formControlName="resume_path" >  -->
+
+                <button type="submit" [disabled]="signinForm.invalid" >
+                  <span class="spinner-border text-primary" role="status" *ngIf="sending"></span>
+                  {{sending ? 'please wait' : 'Submit'}}&#8230;</button>
+                <button type="reset">Reset</button>
+                
+
+
+            </form>
+    </div>
+    <!-- Signup End -->
+</div>
+
+<!-- <div class="modal-footer"> -->
+    <!-- <button type="button d-flex align-center" class="btn btn-default" (click)="bsModalRef.hide()">{{ closeBtnName }}</button> -->
+<!-- </div> -->
+<!--Modal End  -->

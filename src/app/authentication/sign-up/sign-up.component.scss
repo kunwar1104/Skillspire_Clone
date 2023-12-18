@@ -1,0 +1,43 @@
+.add-product{
+    position: relative;
+    height: 600px;
+    width:  400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;   
+    background-color: aliceblue;
+}
+.error{ 
+    color: red;
+    font-weight: bold;
+}
+.commen-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 300px;
+}
+input , button {
+    border-radius: 5px;
+    background-color: whitesmoke;
+    margin-top: 5px;
+}
+.title{
+    display: flex;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+button{
+    background-color: rgb(11, 144, 196);
+}
+
+button:hover {
+    background-color: blue;
+}
+
+input {
+    margin-top: 5px;
+}

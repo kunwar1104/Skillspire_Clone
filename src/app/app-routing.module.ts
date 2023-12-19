@@ -5,7 +5,7 @@ import { AlertComponent } from 'ngx-bootstrap/alert';
 
 const routes: Routes = [
   { path: "", 
-    redirectTo: 'dashboard',
+    redirectTo: '',
     pathMatch : 'full'
   },
   {
@@ -16,9 +16,8 @@ const routes: Routes = [
     path: "auth",
     loadChildren: () => import ('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
-  // {
-  //   path: 'alert', component : AlertComponent  
-  // }
+ 
+  
   
  
   

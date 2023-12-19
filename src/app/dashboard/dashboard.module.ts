@@ -5,6 +5,11 @@ import { DashboardComponent } from './dashboard.component';
 import { DashbordLayoutComponent } from '../layout/dashbord-layout/dashbord-layout.component';
 import { HeaderComponent } from '../shared/header/header.component';
 import { FooterComponent } from '../shared/footer/footer.component';
+import { MyPortalModule } from './my-portal/my-portal.module';
+import { ProgramsComponent } from './programs/programs.component';
+import { TrainersComponent } from './trainers/trainers.component';
+import { JobsComponent } from './jobs/jobs.component';
+import { BlogsComponent } from './blogs/blogs.component';
 
 
 @NgModule({
@@ -12,15 +17,23 @@ import { FooterComponent } from '../shared/footer/footer.component';
     DashbordLayoutComponent,
     DashboardComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ProgramsComponent,
+    TrainersComponent,
+    JobsComponent,
+    BlogsComponent,
+   
     
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    MyPortalModule,
+   
   ],
   exports: [
-    DashboardComponent
+    DashboardComponent,
+    DashbordLayoutComponent
   ]
 })
 export class DashboardModule { }

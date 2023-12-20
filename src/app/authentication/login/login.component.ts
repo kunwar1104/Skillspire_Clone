@@ -47,11 +47,13 @@ export class LoginComponent {
     if(data){
       this.authService.login(data).subscribe(( res) => {
                console.log(res)
+               
               if(res){
                  this.notification.showNotification("Login Successfull", "success", true, 2000)
                  this.bsModalRef.hide()
               }
               else{
+                res
                 this.notification.showNotification("Login Failed", "failed", true, 2000)
 
               }

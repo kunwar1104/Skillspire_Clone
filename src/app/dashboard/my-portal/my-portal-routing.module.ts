@@ -7,6 +7,11 @@ import { DashbordLayoutComponent } from 'src/app/layout/dashbord-layout/dashbord
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'my-portal',
+    pathMatch: 'full'
+  },
+  {
     path: 'my-portal',
     component: MyPortalComponent
   },

@@ -69,6 +69,13 @@
                 <label for="terms" >
                 <input type="checkbox" id="terms" formControlName="terms" required>&nbsp; I agree to all Terms & Conditions.*</label>
                  
+                <label for="">
+                <input class="form-control" type="text" formControlName="resume_path" id="resume_path"  
+                       placeholder="Please Enter Resume Path" required>
+                  <div *ngIf="signinForm.get('resume_path').invalid && signinForm.get('resume_path').touched">
+                       <div *ngIf="signinForm.get('resume_path').hasError('required')">Please Enter Resume Path</div>
+                  </div>
+                </label>
                 <!-- <input type="text" placeholder="Resume" id="resume_path" formControlName="resume_path" >  -->
 
                 <button type="submit" [disabled]="signinForm.invalid" >

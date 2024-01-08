@@ -1,18 +1,22 @@
-<div class="modal-header">
+<div class="modal-header ">
+
   <h4 class="modal-title pull-left">{{ title }}</h4>
+
   <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
     <span aria-hidden="true" class="visually-hidden">&times;</span>
+
   </button>
 </div>
 <div class="modal-body">
 
   <div class="add-product">
+  <p class="title">Login</p>
+
     <!-- <p class="error">{{addProductMessage}}</p> -->
 
     <!--Notification message success or failed  -->
     <span *ngIf="loginMessage" class="alert ">{{message}}</span>
 
-    <div class="title">Login</div>
     <form [formGroup]="loginForm" class="commen-form" (ngSubmit)="submit()">
 
       <input class="form-control" type="email" id="email_id" formControlName="email_id"
@@ -35,9 +39,10 @@
       </button>
 
       <button type="reset">Reset</button>
-
-      <div>{{loginForm.status}}</div>
-      <div>{{loginForm.invalid}}</div>
+      
+      <a class="toggle-auth" (click)="openSigninupModalComponent()">Already have an account? LogIn </a>
+      <!-- <div>{{loginForm.status}}</div>
+      <div>{{loginForm.invalid}}</div> -->
     </form>
   </div>
   <!-- Login End -->

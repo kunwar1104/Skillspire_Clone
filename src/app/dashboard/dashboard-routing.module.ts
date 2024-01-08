@@ -2,14 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashbordLayoutComponent } from '../layout/dashbord-layout/dashbord-layout.component';
 import { DashboardComponent } from './dashboard.component';
-import { LoginComponent } from '../authentication/login/login.component';
-import { SignUpComponent } from '../authentication/sign-up/sign-up.component';
 import { MyPortalComponent } from './my-portal/my-portal.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { ProgramsComponent } from './programs/programs.component';
 import { TrainersComponent } from './trainers/trainers.component';
-import { UserInfoComponent } from './my-portal/user-info/user-info.component';
+import { PersonalInfoComponent } from './my-portal/personal-info/personal-info.component';
 
 const routes: Routes = [
   {
@@ -51,7 +49,7 @@ const routes: Routes = [
       },
       {
         path: 'pers-info',
-        component: UserInfoComponent
+        component: PersonalInfoComponent
       }
 
 

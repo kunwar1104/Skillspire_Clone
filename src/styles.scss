@@ -5,3 +5,10 @@
 
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+.carousel-control-prev-icon {
+    background-color: red;
+ }
+ .carousel-control-next-icon {
+    background-color: red;
+ }

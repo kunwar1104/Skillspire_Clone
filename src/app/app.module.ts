@@ -8,6 +8,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { HttpClientModule } from '@angular/common/http';
 import { AlertModule} from 'ngx-bootstrap/alert'
 import { SharedModule } from './shared/shared.module';
+import { Subscription } from 'rxjs';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 @NgModule({
     declarations: [
@@ -23,7 +25,8 @@ import { SharedModule } from './shared/shared.module';
         FormsModule,
         HttpClientModule,
         SharedModule,
-        ModalModule.forRoot()
+        ModalModule.forRoot(),
+        CarouselModule.forRoot()
         
         
         

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import {BsModalRef, BsModalService, ModalOptions} from 'ngx-bootstrap/modal'
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal'
 import { AuthService } from 'src/app/authentication/auth.service';
 import { LoginComponent } from 'src/app/authentication/login/login.component';
 import { SignUpComponent } from 'src/app/authentication/sign-up/sign-up.component';
+import { NotificationService } from '../notification/notification.service';
+import { Observable, Subscriber, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -10,50 +12,92 @@ import { SignUpComponent } from 'src/app/authentication/sign-up/sign-up.componen
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  bsModalRef? : BsModalRef
-  isLogedIn: boolean = false  // for show and hide of navbutton 
+  bsModalRef? :  BsModalRef |any  ;
+  dataa : any;
+  isLogedIn? : boolean = false  ;
+  getTokenFromApi: any;
+  data: any;
+ 
+public sub :Subscription | any
 
-  private get token() {
-   return this.token
-  }
-  
-  private set token(mytoken : string) {
-   this.token  = mytoken
-  }
-  
    constructor ( private modalService:BsModalService,
-                 private auth: AuthService ) { }
+                 private auth: AuthService,
+                 public notification : NotificationService,
+                //  public bsModalRef : BsModalRef
+                // public sub : Subscription
+                // public bsModalRef:BsModalRef
+                 ) { }
 
-   ngOnInit(data : any): void {
-      // this.auth.login(data).subscribe((res) => {
-      //    console.log(res)
-      //     localStorage.getItem('token')
-      //    let token = "token"
-      //    console.log("Login Token",token)
-      //    this.isLogedIn = true ;
-      //   })
-     let tokenkey =  localStorage.getItem('mytoken')
-       console.log("tokenkey =",tokenkey)
-       tokenkey = JSON.parse(data)
-       console.log(data)
-     if(data){
-        this.isLogedIn = true
-     }
+   ngOnInit() {
+    const Mytoken = localStorage.getItem('accessToken')
+    console.log(Mytoken)
+    if(Mytoken){
+       this.isLogedIn = true
+    }
    }
+ 
 
- openLoginModalComponent(){
-    this.bsModalRef = this.modalService.show(LoginComponent);
-    this.bsModalRef.content.closeBtnName = 'Close';
+  async openLoginModalComponent(  ) {
+      this.bsModalRef =    this.modalService.show(LoginComponent) 
+      this.bsModalRef.content.closeBtnName = 'Close';
+      
+      await this.bsModalRef.onHidden.subscribe((result: any) =>  {
+          this.handelModelClosed(result)
+      });
+        // 
+       }
+
+   handelModelClosed(result: any ) {
+    console.log(result)
+     const token  =    localStorage.getItem('accessToken')
+      console.log(token)
+       if(token){
+         this.isLogedIn = true ;
+      }else{
+        this.isLogedIn = false
+      }
  }
+ 
 
- openSignupModalComponent() {
-    this.bsModalRef = this.modalService.show(SignUpComponent);
-    this.bsModalRef.content.closeBtnName = 'Close';
- }
+  //  openLoginModalComponent() {
+  //   this.bsModalRef = this.modalService.show(LoginComponent);
+  //   this.bsModalRef.content.closeBtnName = 'Close'
 
-  login(data : any){
-    this.auth.login(data).subscribe((res) => {
-     console.log(res)
-    })
+  //  this.sub = this.bsModalRef.content.onClose.subscribe(async () => {
+      
+  //     // This callback will be triggered when the modal is closed
+  //     const token = localStorage.getItem('accessToken') 
+  //     // const myToken  =  await token
+  //     console.log(token);
+
+  //      if (token) {
+      
+  //      return this.isLogedIn = true;
+  //     }
+  //   });
+  // }
+ 
+
+  openSignupModalComponent() {
+      this.bsModalRef = this.modalService.show(SignUpComponent);
+      this.bsModalRef.content.closeBtnName = 'Close';
   }
+
+  logOut() {
+    const token = localStorage.getItem('accessToken')
+    console.log(token)
+    
+    if(token ){
+      localStorage.clear()
+      this.auth.logOut(this.dataa )
+      this.notification.showNotification("LogedOut Suceessful ","success", true,1000)
+
+      this.isLogedIn = false
+    }
+ 
+   
+  }
+
 }
+
+

@@ -14,7 +14,9 @@ import { AlertModule } from 'ngx-bootstrap/alert';
   ],
   imports: [
     CommonModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    
+    
   ],
   // here we export some component for root file & and for other module
   exports: [

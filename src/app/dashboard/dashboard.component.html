@@ -1,7 +1,7 @@
 <div class="d-flex   w-100">
   <!-- carasoule -->
   <div class=" w-50">
-    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
           aria-current="true" aria-label="Slide 1"></button>
@@ -10,26 +10,31 @@
       </div>
       <div class="carousel-inner">
         <div></div>
-        <div class="carousel-item active" data-bs-interval="10000">
-          <img src="../../assets/pexels.jpeg" id="img" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block" *ngFor="let item of carouselItem">
-            <h5>{{item.heading}}</h5>
+        <div class="carousel-item active " data-bs-interval="10000">
+          <img src="../../assets/Education-Image1.png" id="img" class="d-block w-100 img" alt="..." >
+          <div class="carousel-caption d-none d-md-block text-colour" *ngFor="let item of carouselItem">
+            <h4 class="">{{item.heading}}</h4>
             <p>{{item.description}}</p>
+            <a  class="btn btn-light register-button">Registar</a>
           </div>
         </div>
-        <div class="carousel-item" data-bs-interval="2000">
+        <div class="carousel-item " data-bs-interval="2000">
           <img src="../../assets/images.jpeg" id="img" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block " *ngFor="let item of carouselItem">
+          <div class="carousel-caption d-none d-md-block text-colour " *ngFor="let item of carouselItem">
 
-            <h5>{{item.heading}}</h5>
+            <h4>{{item.heading}}</h4>
             <p>{{item.description}}</p>
+            <button class="btn btn-light register-button">Register</button>
+
           </div>
         </div>
-        <div class="carousel-item">
-          <img src="../../assets/pexels.jpeg" id="img" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block" *ngFor="let item of carouselItem">
-            <h5>{{item.heading}}</h5>
+        <div class="carousel-item ">
+          <img src="../../assets/collage.jpeg" id="img" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block text-colour" *ngFor="let item of carouselItem">
+            <h4>{{item.heading}}</h4>
             <p>{{item.description}}</p>
+            <button class="btn btn-light register-button"> Register </button>
+
           </div>
         </div>
       </div>
@@ -82,71 +87,25 @@
 <!-- ABOUT US CARD END -->
 <!-- ------------------------------------------------ -->
 
-<!-- --------------------------------------------------------------------------------------- -->
-<!-- Cards Start -->
-<!-- --------------------------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
+<!--                                           Programs                                                    -->
+<!-- ---------------------------------------------------------------------------------------------------------------- -->
 
-<div class="row mt-4">
-    <!-- card-1 -->
-    <div class="col d-flex justify-content-around  ">
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-    </div>
+<section class="Programs-Container">
 
-    <!-- card-2 -->
-    <div class="col d-flex justify-content-around">
-      <div class="col d-flex justify-content-around  ">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
+  <carousel [itemsPerSlide]="itemsPerSlide"
+          [singleSlideOffset]="singleSlideOffset"
+          [interval]="0"
+          [noWrap]="noWrap">
+  <slide *ngFor="let Category of ProgramsCategory" >
+    <div class="carousel-caption" >
+      <h4 style="color: red;">{{Category.name}}</h4>
+      
     </div>
-    <div class="col">
-      <div class="col d-flex justify-content-around  ">
-        <div class="card" style="width: 18rem;">
-          <img src="..." class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
-      </div>
+    <div *ngFor="let item of ProgramsCategory">
+      <h4 >{{item.name}}</h4>
     </div>
-    </div>
+  </slide>
+</carousel>
 
-<!-- ABOUT US CARD START -->
-
-<!-- <main>
-  <div class = "card">
-    <img src="https://images.unsplash.com/photo-1656618020911-1c7a937175fd?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NTc1MzQyNTE&ixlib=rb-1.2.1&q=80" alt="">
-    <div class="card-content">
-      <h2>
-        Card Heading
-      </h2>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nesciunt exercitationem iste, voluptatum, quia explicabo laboriosam rem adipisci voluptates cumque, veritatis atque nostrum corrupti ipsa asperiores harum? Dicta odio aut hic.
-      </p>
-      <a href="#" class="button">
-        Find out more 
-        <span class="material-symbols-outlined">
-          arrow_right_alt
-        </span>
-      </a>
-    </div>
-  </div>
-</main> -->
+</section>

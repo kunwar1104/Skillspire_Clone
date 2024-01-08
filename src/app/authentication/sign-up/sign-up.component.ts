@@ -27,7 +27,8 @@ export class SignUpComponent {
   message: string | undefined;
   sending: boolean = false
 
-  constructor(public bsModalRef: BsModalRef,
+  constructor(
+    public bsModalRef: BsModalRef,
     public authService: AuthService,
     private notification: NotificationService,
     private router: Router,
@@ -46,19 +47,22 @@ export class SignUpComponent {
       is_student: new FormControl('', [Validators.required]),
       receive_newsletter: new FormControl('', [Validators.required]),
       terms: new FormControl('', [Validators.required]),
-      // resume_path: new FormControl ('', [Validators.required]),
+      resume_path: new FormControl ('', [Validators.required]),
 
     });
   };
 
   submit() {
-    console.log(this.signinForm.value)
+    // console.log(this.signinForm.value)
     this.sending = true;
     if (this.signinForm.value) {
       let data = this.signinForm.value
       console.log(data)
       this.authService.signUp(data).subscribe((res) => {
         console.log(res)
+        const response = res
+        response.JSON.stringify(response)
+        console.log("response =",response)
 
         if (res) {
           this.notification.showNotification('Signup Successfull', 'success', true, 2000)

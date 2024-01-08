@@ -10,6 +10,9 @@ import { ProgramsComponent } from './programs/programs.component';
 import { TrainersComponent } from './trainers/trainers.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { BlogsComponent } from './blogs/blogs.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 @NgModule({
@@ -29,6 +32,11 @@ import { BlogsComponent } from './blogs/blogs.component';
     CommonModule,
     DashboardRoutingModule,
     MyPortalModule,
+    CarouselModule.forRoot(),
+    SlickCarouselModule
+    
+  
+    
    
   ],
   exports: [

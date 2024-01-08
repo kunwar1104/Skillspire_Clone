@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse} from "@angular/common/http"
 import { Login, Signup, UpdateUserProfile } from './auth-interface';
-import { Observable, ObservableInput, catchError, throwError } from 'rxjs';
+import { Observable, ObservableInput, catchError, map, throwError } from 'rxjs';
 
 
 @Injectable({
@@ -26,27 +26,43 @@ export class AuthService {
 // ****************************************************************************************
 //                                      Login
 // ****************************************************************************************
-  login (data : Login  ){ 
+  login (data : any  ): Observable<any>{ 
     const headers = new HttpHeaders({
       'Content-Type':'application/json',
       'accept':'application/json'
     });
     console.log(data)
-    return this.http.post<Login>(`${this.url}/login`,data, {headers})
+    return this.http.post(`${this.url}/login`,data, {headers})
+    // .pipe(map ((res :any) => {
+    //      console.log(res)
+    //      console.log(res.accessToken)
+    //      localStorage.setItem("accessToken",res.accessToken)
+    // })) 
   }
 
 // ****************************************************************************************
 //                                      LogOut
 // ****************************************************************************************
-  logOut(data : any) {
-    return this.http.post(`${this.url}/logout`,data)
+  logOut(data: any) {
+    return this.http.post(`${this.url}/logout`, data)
   }
 
 // ****************************************************************************************
 //                                    Get_User_Profile
 // **************************************************************************************** 
   userProfile() {
-    return this.http.get(`${this.url}/user_profile` )
+    let headers ={
+      headers : {
+         Authorization: 'Bearer ' + localStorage.getItem('accessToken')
+    },
+  }
+    console.log("headers =",headers)
+    console.log('sdsdssdsdsds')
+    return this.http.get(`${this.url}/user_profile`,headers ).pipe(map (() => {
+      console.log("sssssssssssssdsa")
+    })
+    )
+    
   }
 
 // ****************************************************************************************

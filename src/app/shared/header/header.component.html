@@ -26,19 +26,23 @@
             <a class="nav-link" routerLink="/blogs">BLOGS</a>
           </li>
         </ul>
-        <ul *ngIf="isLogedIn">
-          <li class="nav-item">
-            <a  class="nav-link" routerLink="/my-portal">MY PORTAL</a>
-          </li>
-          <li class="nav-item">
-            <a  class="nav-link" >LogOut</a>
-          </li>
+        <ul class="navbar-nav" *ngIf="isLogedIn" >
+            <li  class="nav-item ">
+              <button  class="sbtn btn btn-outline-light me-3   " routerLink="/my-portal">MY PORTAL</button>
+            </li>
+            <li class="nav-item">
+              <button  class="btn btn-outline-light me-3 sbtn " (click)="logOut()" >LogOut</button>
+            </li>
         </ul>  
-        <div >
-          <button type="button" class="btn btn-outline-light me-3" (click)=" openLoginModalComponent()"  >Login</button>
-          <button type="button" class="btn btn-outline-light "  (click)="openSignupModalComponent()" >SignUp</button>
-
+        
+        <div *ngIf="!isLogedIn"  >
+           <button type="button" class="btn btn-outline-light me-3" (click)=" openLoginModalComponent()"  >Login</button>
         </div>
+
+        <div >
+           <button type="button" class="btn btn-outline-light "  (click)="openSignupModalComponent()" >SignUp</button>
+        </div>
+        
       </div>
     </div>
   </nav>

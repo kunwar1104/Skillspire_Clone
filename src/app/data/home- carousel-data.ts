@@ -1,19 +1,21 @@
-import {CAROUSEL} from '../Models/home-carousel-model'
+import { CAROUSEL } from '../Models/home-carousel-model'
 
-export let carousel : CAROUSEL[] = [
+export let carousel: CAROUSEL[] = [
     {
-        id: 1 ,
+        id: 1,
         heading: "hello",
         description: "how are you ",
     },
     {
-        id: 2 ,
+        id: 2,
         heading: "hello",
         description: "how are you ",
     },
     {
-        id: 3 ,
+        id: 3,
         heading: "hello",
         description: "how are you ",
     }
 ]
+
+   

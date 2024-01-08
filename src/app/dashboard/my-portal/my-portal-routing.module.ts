@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MyPortalComponent } from './my-portal.component';
-import { UserInfoComponent } from './user-info/user-info.component';
 import { UserEducComponent } from './user-educ/user-educ.component';
-import { DashbordLayoutComponent } from 'src/app/layout/dashbord-layout/dashbord-layout.component';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
 
 const routes: Routes = [
   {
@@ -17,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: "pers-info",
-    component: UserInfoComponent
+    component: PersonalInfoComponent
   },
   {
     path: 'edu-info',

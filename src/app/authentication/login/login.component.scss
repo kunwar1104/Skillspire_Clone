@@ -7,8 +7,26 @@
     align-items: center;
     margin: auto;   
     background-color: aliceblue;
-    
 }
+.toggle-auth{
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+.modal-body{
+    // background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    //     background-color: rgba(33, 37, 41, 1) !important;
+}
+// .modal-header{
+    // background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+    // background-color: rgba(33, 37, 41, 1) !important;;
+// }
+// .modal-footer{
+//     background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+//     background-color: rgba(33, 37, 41, 1) !important;;
+// }
 .commen-form {
     display: flex;
     flex-direction: column;
@@ -21,7 +39,7 @@ input , button {
     margin-top: 5px;
 }
 .title{
-    // margin-top: 50px;
+    // margin-top: 10px;
     display: flex;
     text-align: center;
     font-size: 35px;

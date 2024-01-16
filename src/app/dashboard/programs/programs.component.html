@@ -1,18 +1,68 @@
 <div class="container">
     <div class="row">
-        <div class="col-3" style="border: 1px solid red; height: 90%;">
-
+        <div class="col-3" style=" height: 90%;">
+          <form formGroup="programs_Data">
+              <div>
+                <u type="reset" value="Reset" >Reset All</u>
+              </div>
+            <div class="fillter_box" *ngFor="let lable of fillterTitle "  >
+                <p>{{lable.title}}</p>
+                
+                <label for="check" *ngFor="let item of lable[lable.key] ">
+                  
+                  <input id="check" type="radio" (click)="dataFillters()" formArrayName="program" >{{item.name}}
+                </label>
+                
+            </div>
+          
+        </form>
         </div>
         <div class="col-9" style="border: 1px solid yellow; height: 90%;">
+        <div class="d-flex">
             <div>
-                <h2>Programs</h2>
+                <h2>Programs</h2> 
             </div>
+            <div class="ms-5" >
+                <h2>Shorting</h2>
+                <div class="btn-group" dropdown>
+                    <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+                            aria-controls="dropdown-basic">
+                      Button dropdown <span class="caret"></span>
+                    </button>
+                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+                        role="menu" aria-labelledby="button-basic">
+                      <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
+                      <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
+                      <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
+                      <li class="divider dropdown-divider"></li>
+                      <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+                      </li>
+                    </ul>
+                  </div>
+            </div>
+        </div>   
 
             <div class="row" id="carddiv">
 
                 <!--card1-->
 
-                <div class="col-md-6 mb-2">
+                <div class="col-md-6 mb-2" *ngFor="let item of programsCard">
+                    <div class="parent-card">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{{item.photo}}" class="card-img-top" alt="sample.png">
+                            <div class="card-body">
+                                <h5 class="card-title">{{item.title}}</h5>
+                                <p class="card-text">{{item.short_desc}}</p>
+                                <p>{{item.delivery_type}}</p>
+                                <p>{{item.current_status}}</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- <div class="col-md-6 mb-2">
                     <div class="parent-card">
                         <div class="card" style="width: 18rem;">
                             <img src="../../../assets/sample.png" class="card-img-top" alt="sample.png">
@@ -71,7 +121,6 @@
                     </div>
                 </div>
 
-
                 <div class="col-md-6 mb-2">
                     <div class="parent-card">
                         <div class="card" style="width: 18rem;">
@@ -112,22 +161,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 mb-2">
-                    <div class="parent-card">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../../assets/sample.png" class="card-img-top" alt="sample.png">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </div>
+
+  
+
+  

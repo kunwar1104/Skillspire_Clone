@@ -10,6 +10,7 @@ import { AlertModule} from 'ngx-bootstrap/alert'
 import { SharedModule } from './shared/shared.module';
 import { Subscription } from 'rxjs';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
         HttpClientModule,
         SharedModule,
         ModalModule.forRoot(),
-        CarouselModule.forRoot()
+        CarouselModule.forRoot(),
+        BsDropdownModule.forRoot()
         
         
         

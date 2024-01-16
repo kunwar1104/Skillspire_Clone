@@ -10,10 +10,8 @@ import { ProgramsComponent } from './programs/programs.component';
 import { TrainersComponent } from './trainers/trainers.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { BlogsComponent } from './blogs/blogs.component';
-import { BrowserModule } from '@angular/platform-browser';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -33,7 +31,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     DashboardRoutingModule,
     MyPortalModule,
     CarouselModule.forRoot(),
-    SlickCarouselModule    // slick carousel
+    BsDropdownModule.forRoot()
     
   
     

@@ -92,10 +92,10 @@
 <!-- ---------------------------------------------------------------------------------------------------------------- -->
 
 <section class=" Programs-Container">
-  <!-- <div ><h3 style="color: white; font-family: 'Gill Sans', 'Gill Sans MT',
+  <div ><h3 style="color: white; font-family: 'Gill Sans', 'Gill Sans MT',
             Calibri, 'Trebuchet MS', sans-serif;
             margin-left: 30px;
-            ">Programs</h3></div> -->
+            ">Programs</h3></div>
 
     <div class="Mycarasoule">
 
@@ -187,11 +187,11 @@
 <!--Popular Trainers  -->
 
 <section class="Popular-Trainers">
-  <!-- <div ><h3 style="color: black; font-family: 'Gill Sans', 
+  <div ><h3 style="color: black; font-family: 'Gill Sans', 
     'Gill Sans MT', Calibri, 'Trebuchet MS',sans-serif;
     margin-left: 30px;
     ">Popular Trainers</h3>
-  </div> -->
+  </div>
   <!-- Carousel -->
     <div class="trainer-carasoule">
         <carousel [itemsPerSlide]="3"
@@ -228,42 +228,6 @@
     </div>
 </section>
 <!-- Success Story-->
-<section class="Success-story">
-  <div ><h3 style="color: black; font-family: 'Gill Sans', 
-    'Gill Sans MT', Calibri, 'Trebuchet MS',sans-serif;
-    margin-left: 30px;
-    ">Success Stories</h3>
-  </div>
-
-<div class=" Stories-carousel ">
-  <carousel [isAnimated]="true"> 
-    <div class="Success-slide-main" *ngFor="let item of successStory">
-      
-      <slide class="  Success-slide" >
-
-         <div class="d-flex">
-
-            <div class="success-img-top" >
-              <img src="../../assets/collage.jpeg" class="card-img-top success-img-top" alt="...">
-            </div>
-    
-            <div class=" card-body text-start  mt-5   ">
-              <h5 class="card-title">Name : {{item.user_name}}</h5>
-              <br>
-              <h5 ><b>{{item.user_designation}}</b></h5>
-              <h5 class="card-title">Location : {{item.location}}</h5>
-                <br>
-              <p class="card-text">{{item.testimonial_text}}</p>
-              
-            </div>
-         </div>
-
-      </slide>
-
-    </div> 
-  </carousel>
-</div>
-</section>
 
 <!-- Blogs -->
 <section class="blogs">
@@ -307,3 +271,42 @@
     </carousel>
 </div>
 </section>
+<!--  -->
+<section class="Success-story">
+  <div ><h3 style="color: black; font-family: 'Gill Sans', 
+    'Gill Sans MT', Calibri, 'Trebuchet MS',sans-serif;
+    margin-left: 30px;
+    ">Success Stories</h3>
+  </div>
+
+<div class=" Stories-carousel ">
+  <carousel [isAnimated]="true"> 
+    <div class="Success-slide-main" *ngFor="let item of successStory">
+      
+      <slide class="  Success-slide" >
+
+         <div class="d-flex">
+
+            <div class="success-img-top" >
+              <img src="../../assets/collage.jpeg" class="card-img-top success-img-top" alt="...">
+            </div>
+    
+            <div class=" card-body text-start  mt-5   ">
+              <h5 class="card-title">Name : {{item.user_name}}</h5>
+              <br>
+              <h5 ><b>{{item.user_designation}}</b></h5>
+              <h5 class="card-title">Location : {{item.location}}</h5>
+                <br>
+              <p class="card-text">{{item.testimonial_text}}</p>
+              
+            </div>
+         </div>
+
+      </slide>
+
+    </div> 
+  </carousel>
+</div>
+
+</section>
+

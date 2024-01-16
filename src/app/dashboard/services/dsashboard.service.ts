@@ -13,6 +13,31 @@ export class DsashboardService {
     const headers = new HttpHeaders({
       'accept':'application/json'
     });
+    console.log("sssssssssssssssss")
     return this.http.get(`${this.url}/programs`,{headers})
+    
   }
+   
+  allTrainers(){
+    const headers = new HttpHeaders({
+      'accept':'application/json'
+    })
+    return this.http.get(`${this.url}/trainers`, {headers})
+  }
+  
+  
+  allSuccessStories(){
+    const headers = new HttpHeaders({
+      'accept': 'application/json'
+    })
+    return this.http.get(`${this.url}/testinomials`, {headers})
+  }
+
+  // http://localhost:8000/blogs
+   allBlogs() {
+    const headers = new HttpHeaders({
+      'accept': 'application/json'
+    })
+    return this.http.get(`${this.url}/blogs`, {headers})
+   }
 }

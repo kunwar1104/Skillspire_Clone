@@ -6,9 +6,36 @@
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
 
-.carousel-control-prev-icon {
-    background-color: red;
+
+.carousel-control-prev-icon  {
+   background-color: rgb(176, 165, 165) !important; 
+}
+.carousel-control-next-icon{
+   background-color: rgb(176, 165, 165) !important; 
+
+}
+ .carousel-control-prev-icon:hover {
+    background-color: white ; 
+    color: black
  }
- .carousel-control-next-icon {
-    background-color: red;
+ .carousel-control-next-icon:hover{
+   background-color: white ; 
+   color: black
  }
+//  .carousel-control-next-icon {
+//     background-color: red !important;
+//  }
+//  .carousel-indicators{
+//    display: none !important;
+//    display: flex;
+//  }
+// .carousel-caption{
+//    position: absolute;
+//   right: 15%;
+//   bottom: 1.25rem;
+//   left: 15%;
+//   padding-top: 1.25rem;
+//   padding-bottom: 1.25rem;
+//   color: black;
+//   text-align: center;
+// }

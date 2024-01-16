@@ -33,7 +33,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     DashboardRoutingModule,
     MyPortalModule,
     CarouselModule.forRoot(),
-    SlickCarouselModule
+    SlickCarouselModule    // slick carousel
     
   
     

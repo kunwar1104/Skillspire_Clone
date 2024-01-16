@@ -28,8 +28,8 @@
         object-fit: cover;
         height: 400px;
 }
-.carousel-dark .carousel-control-prev-icon, .carousel-dark .carousel-control-next-icon{
-  background-color: greenyellow;
+ .carousel-control-prev-icon,  .carousel-control-next-icon{
+  background-color: greenyellow ;   
   border-radius: 5px;
 }
 // Aboutus page
@@ -105,35 +105,200 @@ $color-primary-white: rgb(240, 240, 240);
   .aboutUs-title {font-size: 35px;}
 }
 
-//Programs Section 
+// Programs Section 
 .Programs-Container{
   width: 100%;
-  height: 700px;
-  // background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  // background-color: rgba(33, 37, 41, 1) !important;
+  height: 711px;
+ 
+  background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-color: rgba(33, 37, 41, 1) !important;
+  
+  
 }
-.Programs-Carousel{
-  width: 100%;
+.sbtn{
+font-weight: bold;
+}
+.sbtn:hover {
+  background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-color: rgba(33, 37, 41, 1) ;
+  font-weight: bold;
+  color: white;
+}
+
+.Mycarasoule{
+  width: 75%;
   height: 50px;
-  // background-color: green;
-  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
 }
-.carousel-control-prev-icon {
-   background-color: red;
+.my-slide {
+  width: 50px;
+  // background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)) !important;
+  // background-color: rgba(33, 37, 41, 1) !important ;
+  margin-left: 5px;
+  border-radius: 5px;
+  text-align: center;
+  // color: white ;
+
+}
+// .my-slide:hover{
+//   background-color: white;
+//   color: black;
+//   border-radius: 10px;
+//   text-decoration: none;
+// }
+.my-slide-text{
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)) !important;
+  background-color: rgb(33, 37, 41) ;
+  text-decoration: none;
+  width: 300px;
+  display: inline-block;
+  width: 357px;
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid white;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-//Populer trainers Section
-.Populer-Trainers-Container{
-width: 100%;
-
+.my-slide-text:hover{
+color: black;
+background-color: white;
 }
-.carousel-main{
+.left-right-main{
+  // background-color: rgb(84, 88, 88);
+  height: 600px;
+  margin: auto;
+}
+.left-side{
+ 
+  background-color: rgb(65, 67, 66);
+}
+
+.left-side-buttons{
+  height: 40px;
+  width: 100%;
+  border-radius:10px ;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.left-side-buttons:hover{
+  height: 40px;
+  width: 100%;
+  background-color: white;
   color: black;
 }
-.slick-prev 
- .slick-next {
-    height: 45px;
-    width: 40px;
-    background: rgb(239, 4, 4) !important;
-    z-index: 100;
+.left-side-button-main{
+  margin-top: 45px;
+  // background-color: beige;
+
+}
+.hr{
+  color: white;
+}
+
+// Right side
+// .right-side{
+//   // background-color: rgb(72, 157, 129);
+//   }
+.right-side-card{
+  height: 600px;
+  margin-top: 13px;
+}
+.bi-record-fill{
+  color: red;
+}
+.card-img-top{
+  height: 210px ;
+  }
+.card-img-bottom{
+  width: 75px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.image-backround{
+  width: 100%;
+  background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-color: rgba(33, 37, 41, 1) !important;
+  height: 85px;
+  border-radius: 10px;
+}
+.cared-trainer-name{
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  color: white;
+}
+// Popular Trainer Page
+.trainer-carasoule{
+  width: 75%;
+  height: 50px;
+  
+  padding-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.trainer-slide{
+  margin: auto;
+  width: 50px;
+  border-width:5px; 
+  // background-color: aqua;
+  border-color: salmon ;
+  border-radius: 5px;
+  text-align: center;
+  height: 500px;
+  padding-left: 50px;
+
+}
+.my-arrow{
+  background-color: aqua;
+  margin-left: 5px;
+}
+.trainer-card-img-top{
+  border: 10px solid rgb(205, 205, 205);
+  border-radius: 5px;
+}
+.Stories-carousel{
+  height: 500px;
+  
+}
+.Popular-Trainers{
+  height: 600px;
+}
+.Success-story{
+  height: 550px;
+}
+.Success-slide{
+  
+  width: 70%;
+  border-width:5px; 
+  background-color: rgb(249, 243, 243);
+  margin: auto;
+  border-radius: 5px;
+  text-align: center;
+  height: 500px;
+  padding-left: 50px;
+}
+.Success-slide-main{
+  width: 70%;
+  margin: auto;
+}
+.success-img-top{
+  width: 400px;
+  height: 400px;
+  margin-top: 20px;
+  border-radius: 10px;
+
+}
+.card-body{
+  margin-left: 10px;
+}
+.blogs{
+  height: 600px;
+  background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-color: rgba(33, 37, 41, 1) !important;
 }

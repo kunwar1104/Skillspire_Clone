@@ -1,6 +1,7 @@
 import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlertComponent } from 'ngx-bootstrap/alert';
+import { DemoComponent } from './prectice/demo/demo.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,10 @@ const routes: Routes = [
     path: "auth",
     loadChildren: () => import ('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
- 
+ {
+   path: 'demo',
+   component : DemoComponent
+ }
   
   
  

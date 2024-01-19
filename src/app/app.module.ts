@@ -11,10 +11,12 @@ import { SharedModule } from './shared/shared.module';
 import { Subscription } from 'rxjs';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { DemoComponent } from './prectice/demo/demo.component';
 
 @NgModule({
     declarations: [
         AppComponent,
+        DemoComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],

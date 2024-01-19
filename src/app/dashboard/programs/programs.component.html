@@ -1,46 +1,39 @@
 <div class="container">
     <div class="row">
         <div class="col-3" style=" height: 90%;">
-          <form formGroup="programs_Data">
-              <div>
-                <u type="reset" value="Reset" >Reset All</u>
-              </div>
-            <div class="fillter_box" *ngFor="let lable of fillterTitle "  >
-                <p>{{lable.title}}</p>
-                
-                <label for="check" *ngFor="let item of lable[lable.key] ">
-                  
-                  <input id="check" type="radio" (click)="dataFillters()" formArrayName="program" >{{item.name}}
-                </label>
-                
-            </div>
-          
-        </form>
+            <form formGroup="programs_Data">
+                <div>
+                    <button type="reset" value="Reset" >Reset All</button>
+                </div>
+                <div class="fillter_box" *ngFor="let lable of fillterTitle; let i = index ">
+                    <p>{{lable.title}}</p>
+
+                    <label class="m-input" for="check" *ngFor="let item of lable[lable.key] let t = index ">
+                        <input id="check" type="checkbox" formArrayName="selected_Check_Box"
+                              (change)="dataFillters($event, lable.key)"
+                                [value]="item.slug" [checked]="item.checked" >&nbsp;{{item.name}}{{item.checked}}
+                    </label>
+
+                </div>
+
+            </form>
         </div>
         <div class="col-9" style="border: 1px solid yellow; height: 90%;">
-        <div class="d-flex">
-            <div>
-                <h2>Programs</h2> 
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h2>Programs</h2>
+                </div>
+                <div class="d-flex ">
+
+                    <select class="" (change)="shortingPrograms($event)" >
+                        <option  value="reverse:fees"  >High to Law</option>
+                        <option value="fees">Law to High</option>
+                        <option value="start_date">Old to New</option>
+                        <option selected value="reverse:start_date" >New to Old</option>
+
+                    </select>
+                </div>
             </div>
-            <div class="ms-5" >
-                <h2>Shorting</h2>
-                <div class="btn-group" dropdown>
-                    <button id="button-basic" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
-                            aria-controls="dropdown-basic">
-                      Button dropdown <span class="caret"></span>
-                    </button>
-                    <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
-                        role="menu" aria-labelledby="button-basic">
-                      <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-                      <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-                      <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-                      <li class="divider dropdown-divider"></li>
-                      <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-                      </li>
-                    </ul>
-                  </div>
-            </div>
-        </div>   
 
             <div class="row" id="carddiv">
 
@@ -48,125 +41,77 @@
 
                 <div class="col-md-6 mb-2" *ngFor="let item of programsCard">
                     <div class="parent-card">
-                        <div class="card" style="width: 18rem;">
+                        <div class="card">
                             <img src="{{item.photo}}" class="card-img-top" alt="sample.png">
                             <div class="card-body">
                                 <h5 class="card-title">{{item.title}}</h5>
                                 <p class="card-text">{{item.short_desc}}</p>
-                                <p>{{item.delivery_type}}</p>
-                                <p>{{item.current_status}}</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
+
+                                <!-- <p>{{item.discounted_fees}}</p>
+                                <p>{{item.fees}}</p> -->
+
+                                <div class="d-flex">
+                                   <!-- Card price -->
+                                    <p>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
+                                        </svg>
+                                        <del>{{item.discounted_fees}}</del>
+                                    </p>
+
+                                    <p>
+                                        &nbsp;
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                                            <path
+                                                d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
+                                        </svg><b>{{item.fees}}</b>
+                                    </p>
+
+                                </div>
+                          <!--Time & Duration  -->
+                                <div class="d-flex  ">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="24" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+                                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z"/>
+                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0"/>
+                                        </svg>
+                                    </div>
+                                          &nbsp;&nbsp;
+                                     <div >
+                                       <p>{{item.duration}}</p>
+                                    </div>
+
+                                </div>
+
+                                <div>
+                                    <p>Class Type:
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="23"
+                                            fill="currentColor" class="bi bi-record-fill  " viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10" />
+                                        </svg><b>{{item.delivery_type}}</b>
+                                    </p>
+                                </div>
+
+                                <!--  image  and name of trainer-->
+                                <div class="row image-backround text-start">
+
+                                    <div class=" col-3 ">
+                                        <img src="{{item.trainerData.photo}}" class="card-img-bottom" alt="">
+                                    </div>
+                                    <p class="col-9 cared-trainer-name ">Trainer : {{item.trainerData.name}}</p>
+
+                                </div>
+
+                                <a href="#" class="sbtn btn btn-outline-dark mt-2  ">Go somewhere</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
-                <!-- <div class="col-md-6 mb-2">
-                    <div class="parent-card">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../../assets/sample.png" class="card-img-top" alt="sample.png">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6 mb-2">
-                    <div class="parent-card">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../../assets/sample.png" class="card-img-top" alt="sample.png">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6 mb-2">
-                    <div class="parent-card">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../../assets/sample.png" class="card-img-top" alt="sample.png">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6 mb-2">
-                    <div class="parent-card">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../../assets/sample.png" class="card-img-top" alt="sample.png">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-2">
-                    <div class="parent-card">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../../assets/sample.png" class="card-img-top" alt="sample.png">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-2">
-                    <div class="parent-card">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../../assets/sample.png" class="card-img-top" alt="sample.png">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mb-2">
-                    <div class="parent-card">
-                        <div class="card" style="width: 18rem;">
-                            <img src="../../../assets/sample.png" class="card-img-top" alt="sample.png">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
 </div>
-
-  
-
-  

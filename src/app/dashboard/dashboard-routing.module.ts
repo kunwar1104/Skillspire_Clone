@@ -6,8 +6,9 @@ import { MyPortalComponent } from './my-portal/my-portal.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { ProgramsComponent } from './programs/programs.component';
-import { TrainersComponent } from './trainers/trainers.component';
+
 import { PersonalInfoComponent } from './my-portal/personal-info/personal-info.component';
+import { TrainersComponent } from './trainers/trainers.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,7 @@ const routes: Routes = [
         component: JobsComponent
       },
       {
-        path: 'blogs',
+        path: 'blog',
         component: BlogsComponent
       },
       {
@@ -50,9 +51,15 @@ const routes: Routes = [
       {
         path: 'pers-info',
         component: PersonalInfoComponent
+      },
+      {
+        path: '',
+        loadChildren: () => import('./programs/programs.module').then(m =>m.ProgramsModule )
+      },
+      {
+        path: '',
+        loadChildren:() => import('./blogs/blogs.module').then(m => m.BlogsModule)
       }
-
-
     ]
   },
   {

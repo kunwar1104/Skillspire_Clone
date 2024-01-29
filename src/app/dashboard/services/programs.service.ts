@@ -36,8 +36,14 @@ export class ProgramsService {
 
    }
 
-
-
+   scrollApi(){
+    return this.http.get(`${this.programs}`, {params: {'sortBy':'start_date','limit':6,"page":2}})
+   }
+   scrollApi_2(){
+    return this.http.get(`${this.programs}`, {params: {'sortBy':'start_date','limit':6,"page":3}}
+    
+    )
+   }
 
 
 
@@ -52,8 +58,10 @@ export class ProgramsService {
     const headers = new HttpHeaders({
       'accept':'application/json'
     });
-    
     return this.http.get(`${this.programs}`,{headers})
-    
+  }
+
+  programsData(params_Data: any){
+    return this.http.get(`${this.programs}/${params_Data}`)
   }
 }

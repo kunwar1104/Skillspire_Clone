@@ -1,0 +1,39 @@
+.main {
+    margin-top: 60px;
+}
+
+.image-main {
+    height: 310px;
+    width: 440px;
+}
+
+.card-main {
+    border: 1px solid black;
+}
+
+.card-main:hover {
+    border: 1px solid skyblue;
+    margin: 1px;
+
+}
+
+.card-text {
+    margin-left: 30px;
+}
+
+.img {
+    height: 300px;
+    width: 440px;
+}
+
+.author {
+    color: gray;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.title {
+    color: skyblue;
+    font-size: 20px;
+    font-weight: bold;
+}

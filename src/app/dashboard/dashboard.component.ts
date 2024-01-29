@@ -15,112 +15,129 @@ export class DashboardComponent {
   ProgramsCategoryList!: any;
   ProgramsList: any = null;
   ProgramsListDefault: any = null;
-  trainersCarousel :  any = null ;
+  trainersCarousel: any = null;
   newData: any = {};
   newData1: any = {};
   myitem: any = [];
-  itemsPerSlide : any;
+  itemsPerSlide: any;
   // singleSlideOffset = true;
   showIndicator = false
   // slidesChangeMessage = 'Hello';
   slides: any
   ProgramsListid: any;
   // hoverEffact!: "'active'";
-  ifNoData: boolean = false; 
-  index : number = 0;
-  CardDetails : any ;
-  isAnimated : any;
+  ifNoData: boolean = false;
+  index: number = 0;
+  CardDetails: any;
+  isAnimated: any;
   newCardDetails: any;
-  successStory : any ;
-  blogsDetails : any
-
+  successStory: any;
+  blogsDetails: any
+  // activeSlideIndex: number = -1;
+  isActive: boolean = false;
+  activeSlideIndex : number | any = 0; 
+  activeSubCategory :  number | any = 0;
+  // activeSlideIndex: number = -1;
   public carouselItem: CAROUSEL[] = carousel;
 
   constructor(private dashboardServices: DsashboardService) { }
 
-  
+
   ngOnInit(): void {
     console.log(this.carouselItem)
     console.log()
-  // Programs main Api 
+    // Programs main Api 
     this.dashboardServices.programsCategory().subscribe((res: any) => {
-        this.ProgramsCategory = res
-        console.log(res)
-        console.log(res[2])
+      this.ProgramsCategory = res
+      console.log(res)
+      console.log(res[2])  // for defaul data
 
-        if (res == null) {
-          this.ifNoData = false
-        }
-        if(res){
-          this.ProgramsListDefault = res[2].programs
-          console.log(this.ProgramsListDefault)
-          // console.log(this.ProgramsListDefault[2])
-        }
-      })
-// For SubCategory  
-      this.dashboardServices.programsCategory().subscribe((res:any) => {
-        this.newCardDetails =res[2].programs
-         this.CardDetails= this.newCardDetails[2]
-      })
+      if (res == null) {
+        this.ifNoData = false
+      }
+      if (res) {
+        this.ProgramsListDefault = res[0].programs
+        console.log(this.ProgramsListDefault)
+        // console.log(this.ProgramsListDefault[2])
+      }
+    })
+    // For SubCategory  
+    this.dashboardServices.programsCategory().subscribe((res: any) => {
+      this.newCardDetails = res[0].programs
+      this.CardDetails = this.newCardDetails[2]
+    })
 
-// Trainers Api
+    // Trainers Api
 
     this.dashboardServices.allTrainers().subscribe((res: any) => {
-       this.trainersCarousel = res.DATA.trainers
+      this.trainersCarousel = res.DATA.trainers
       //  console.log(this.trainersCarousel)
     })
 
-// Success Stories Api
-   
-    this.dashboardServices.allSuccessStories().subscribe((res:any) => {
-    console.log(res)
-    console.log(res.DATA.testinomials)
-    this.successStory = res.DATA.testinomials;
-      this.successStory.map((data: any)=> {
-         console.log(data.user_name)
+    // Success Stories Api
+
+    this.dashboardServices.allSuccessStories().subscribe((res: any) => {
+      console.log(res)
+      console.log(res.DATA.testinomials)
+      this.successStory = res.DATA.testinomials;
+      this.successStory.map((data: any) => {
+        console.log(data.user_name)
       })
     })
 
-// Blogs
+    // Blogs
 
-  this.dashboardServices.allBlogs().subscribe((res:any) => {
-     console.log(res)
-     console.log(res.DATA.blogs)
-     this.blogsDetails = res.DATA.blogs
-     console.log(this.blogsDetails)
-     this.blogsDetails.map((data: any)=> {
-      console.log(data.header)
-     })
+    this.dashboardServices.allBlogs().subscribe((res: any) => {
+      console.log(res)
+      console.log(res.DATA.blogs)
+      this.blogsDetails = res.DATA.blogs
+      console.log(this.blogsDetails)
+      this.blogsDetails.map((data: any) => {
+        console.log(data.header)
+      })
 
-  })
+    })
 
   }
 
-  particularProgramCategory(data: any) {
+  particularProgramCategory(data: any, index: any , id :any) {
     // console.log(id)
     console.log(data)
+    console.log(index)
+    console.log(id)
+
+  this.activeSlideIndex = index;
+  console.log(this.activeSlideIndex)
+    // this.isActive = data;
     if (data === null) {
-      this.ifNoData = true
+      this.ifNoData = true;
+      // this.isActive = true
+      console.log("null")
     }
-    if (data == 'Accounting') {
+    else if (data == 'Accounting') {
+      console.log('Accounting')
       this.ifNoData = false
 
       this.dashboardServices.programsCategory().subscribe((res: any) => {
         console.log(res,)
 
         res.map((myitem: any) => {
-           console.log(myitem)
+          console.log(myitem)
           if (myitem.name == "Accounting") {
-            console.log(myitem.programs)
+            this.isActive = true
 
+            console.log(myitem.programs)
+            this.activeSlideIndex = this.ProgramsListDefault.indexOf(myitem.programs)
             this.ProgramsListDefault = myitem.programs
-           
+
           }
         })
       })
     }
+    
+    else if (data == 'Personal Development') {
+      console.log('Personal Development')
 
-    if (data == 'Personal Development') {
       this.ifNoData = false
 
       this.dashboardServices.programsCategory().subscribe((res: any) => {
@@ -130,16 +147,17 @@ export class DashboardComponent {
 
           if (myitem.name == "Personal Development") {
             console.log(myitem.programs)
+            this.isActive = true
 
             this.ProgramsListDefault = myitem.programs
             console.log(this.ProgramsListDefault)
           }
-          
         })
       })
     }
-
-    if (data == 'GST') {
+    else if (data == 'GST') {
+      console.log('GST')
+      
       this.ifNoData = false
 
       this.dashboardServices.programsCategory().subscribe((res: any) => {
@@ -149,22 +167,25 @@ export class DashboardComponent {
 
           if (myitem.name == "GST") {
             console.log(myitem.programs)
+            this.isActive = true
 
             this.ProgramsListDefault = myitem.programs
             console.log(this.ProgramsListDefault)
           }
+
         })
       })
     }
-
-    if (data == 'Coding') {
+    else if (data == 'Coding') {
       this.ifNoData = true
+      console.log('Coding')
 
       this.dashboardServices.programsCategory().subscribe((res: any) => {
         console.log(res,)
 
         res.map((myitem: any) => {
           if (myitem.name == "Coding") {
+            this.isActive = true
 
             console.log(myitem.programs)
             this.ProgramsListDefault = myitem.programs
@@ -172,31 +193,36 @@ export class DashboardComponent {
         })
       })
     }
+    else {
+      this.isActive = false
+    }
   }
 
-  particularProgramSubCategory(id: any) {
+  particularProgramSubCategory(id: any , sub_Category_Id :any) {
     this.index = id
+    console.log(sub_Category_Id )
     console.log(this.index)
-    this.ProgramsListDefault.map((data: any,)=>{
+    this.activeSubCategory = sub_Category_Id
+    this.ProgramsListDefault.map((data: any,) => {
       console.log(data)
 
-      if( data.id == this.index ) {
+      if (data.id == this.index) {
 
-          this.CardDetails = data
-          console.log(this.CardDetails) 
-      } 
+        this.CardDetails = data
+        console.log(this.CardDetails)
+      }
     })
   }
 
-  allTarinersCarousel(){
+  allTarinersCarousel() {
     this.dashboardServices.allTrainers().subscribe((res: any) => {
-       console.log(res)
-       console.log(res.DATA)
-       console.log(res.DATA.trainers)
-       console.log(res.DATA.trainers.name)
+      console.log(res)
+      console.log(res.DATA)
+      console.log(res.DATA.trainers)
+      console.log(res.DATA.trainers.name)
 
-       this.trainersCarousel = res.DATA.trainers
-       console.log(this.trainersCarousel)
+      this.trainersCarousel = res.DATA.trainers
+      console.log(this.trainersCarousel)
     })
   }
 

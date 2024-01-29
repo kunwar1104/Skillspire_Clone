@@ -15,10 +15,9 @@
                     </label>
 
                 </div>
-
             </form>
         </div>
-        <div class="col-9" style="border: 1px solid yellow; height: 90%;">
+        <div class="col-9" style="border: 1px solid blue; height: 90%;">
             <div class="d-flex justify-content-between">
                 <div>
                     <h2>Programs</h2>
@@ -36,11 +35,12 @@
             </div>
 
             <div class="row" id="carddiv">
-
+<!-- ---------------------------------------------------------------------------------------- -->
                 <!--card1-->
+<!-- ---------------------------------------------------------------------------------------- -->
 
                 <div class="col-md-6 mb-2" *ngFor="let item of programsCard">
-                    <div class="parent-card">
+                    <div class="parent-card" (click)="cardDetails(item.slug)">
                         <div class="card">
                             <img src="{{item.photo}}" class="card-img-top" alt="sample.png">
                             <div class="card-body">

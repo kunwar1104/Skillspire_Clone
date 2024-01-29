@@ -12,11 +12,13 @@ import { Subscription } from 'rxjs';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DemoComponent } from './prectice/demo/demo.component';
+import { ChildComponent } from './prectice/child/child.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         DemoComponent,
+        ChildComponent,
     ],
     providers: [],
     bootstrap: [AppComponent],

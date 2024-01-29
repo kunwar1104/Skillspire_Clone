@@ -3,6 +3,31 @@
     max-height: 400px;    
     opacity: 0.2;
 }
+.dash-main{
+  margin-top: 56px;
+}
+.dash_slide_text1{
+  margin-top: 130px;
+  font-weight: bold;
+}
+.dash_slide_text2{
+  margin-top: 95px;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+.main_dash_slide{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dash_slide{
+  height: 400px;
+  background-color: rgb(170, 165, 158);
+  text-align: center;
+  // margin-top: 50px;
+}
+
 .img:hover{
   opacity: 1.0;
 
@@ -162,7 +187,12 @@ font-weight: bold;
   font-weight: bold;
   font-size: 20px;
 }
-
+.my-slide-text.active{
+background-color: blue !important; 
+}
+// .active{
+//   background-color: blue ;
+// }
 .my-slide-text:hover{
 color: black;
 background-color: white;
@@ -190,6 +220,9 @@ background-color: white;
   width: 100%;
   background-color: white;
   color: black;
+}
+.left-side-buttons.active{
+ background-color: blue;
 }
 .left-side-button-main{
   margin-top: 45px;

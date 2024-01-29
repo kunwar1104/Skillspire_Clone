@@ -1,52 +1,16 @@
-<div class="d-flex   w-100">
+<div class="d-flex   w-100 dash-main">
   <!-- carasoule -->
-  <div class=" w-50">
-    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" 
-          aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div></div>
-        <div class="carousel-item active " data-bs-interval="10000">
-          <img src="../../assets/Education-Image1.png" id="img" class="d-block w-100 img" alt="...">
-          <div class="carousel-caption d-none d-md-block text-colour" *ngFor="let item of carouselItem">
-            <h4 class="">{{item.heading}}</h4>
-            <p>{{item.description}}</p>
-            <a class="btn btn-light register-button">Registar</a>
-          </div>
-        </div>
-        <div class="carousel-item " data-bs-interval="2000">
-          <img src="../../assets/images.jpeg" id="img" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block text-colour " *ngFor="let item of carouselItem">
+  <div class="main_dash_slide w-50">
 
-            <h4>{{item.heading}}</h4>
-            <p>{{item.description}}</p>
-            <button class="btn btn-light register-button">Register</button>
-
-          </div>
+    <carousel [noPause]="false">
+      <slide class="dash_slide" *ngFor="let item of carouselItem">
+        <div class=" ">
+          <h3 class="dash_slide_text1">{{item.heading}}</h3>
+          <p class="dash_slide_text2">{{item.description}}</p>
         </div>
-        <div class="carousel-item ">
-          <img src="../../assets/collage.jpeg" id="img" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block text-colour" *ngFor="let item of carouselItem">
-            <h4>{{item.heading}}</h4>
-            <p>{{item.description}}</p>
-            <button class="btn btn-light register-button"> Register </button>
+      </slide>
+    </carousel>
 
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
   </div>
   <!-- Display Cover Image  -->
   <div class=" w-50">
@@ -64,17 +28,15 @@
     <div class="ml-4 aboutUs-box">
 
       <h3 class="aboutUs-title">AboutUs </h3>
-
       <p class="aboutUs-text"><br>
-
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sit voluptatibus necessitatibus veniam
         perspiciatis consequatur
         commodi odio, id obcaecati vitae possimus voluptatum impedit. Natus cumque quis accusamus, aut laboriosam
         exercitationem.
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Incidunt obcaecati, corrupti iusto, modi, magni sint
         rerum harum
-
       </p>
+
     </div>
   </div>
 
@@ -92,95 +54,101 @@
 <!-- ---------------------------------------------------------------------------------------------------------------- -->
 
 <section class=" Programs-Container">
-  <div ><h3 style="color: white; font-family: 'Gill Sans', 'Gill Sans MT',
+  <div>
+    <h3 style="color: white; font-family: 'Gill Sans', 'Gill Sans MT',
             Calibri, 'Trebuchet MS', sans-serif;
             margin-left: 30px;
-            ">Programs</h3></div>
+            ">Programs</h3>
+  </div>
 
-    <div class="Mycarasoule">
+  <div class="Mycarasoule">
 
-      <carousel [itemsPerSlide]="3"
-        [singleSlideOffset]="true"
-        [showIndicators]="showIndicator" 
-        [noWrap]="true"
-        [interval]="0"
-        [startFromIndex]="1" >
+    <carousel [itemsPerSlide]="3" [singleSlideOffset]="true" [showIndicators]="showIndicator" [noWrap]="true"
+      [interval]="0" [startFromIndex]="1">
 
-          <slide class=" my-slide"  *ngFor="let item of ProgramsCategory; let index=index">
-              <div >
-                <a  class=" my-slide-text" (click)="particularProgramCategory(item.name)"> {{item.name}}</a>
-              </div>  
-          </slide>
-      </carousel>
-    </div>
+      <slide class=" my-slide" *ngFor="let item of ProgramsCategory; let i=index">
+        <div>
+          <a class="my-slide-text {{item.name}}" [ngClass]="{'active': i === activeSlideIndex}"
+            (click)="particularProgramCategory(item.name, i,item.id)">{{item.name}}</a>
+        </div>
+      </slide>
 
-<!-- Left & Right-Main- Part -->
-<div class="container row  left-right-main ">  <!-- main div    --> 
-  
-<!-- Left Side -->
-  
-    <div class="col left-side"   > 
+    </carousel>
+  </div>
 
-      <div class="left-side-button-main" *ngFor="let item of ProgramsListDefault "    >
+  <!-- Left & Right-Main- Part -->
+  <div class="container row  left-right-main "> <!-- main div    -->
 
-          <a class="btn left-side-buttons" (click)="particularProgramSubCategory(item.id)" >{{item.title}}</a>
-          <hr class="hr" >
+    <!-- Left Side -->
+
+    <div class="col left-side">
+
+      <div class="left-side-button-main" *ngFor="let item of ProgramsListDefault let i = index ">
+
+        <a class="btn left-side-buttons" [ngClass]="{'active': i === activeSubCategory} " (click)="particularProgramSubCategory(item.id, i)">{{item.title}}</a>
+        <hr class="hr">
       </div>
-      
+
       <div class="d-flex justify-content-center">
         <p class="mt-5 fs-2" *ngIf="ifNoData">No Data Avilable</p>
       </div>
-</div>
+    </div>
 
-<!--Right Side  -->
-    <div class="col  right-side" >
-       
-  <!--Program Card  -->
-        <div class="card w-100 right-side-card"  >
-          <img src="../../assets/16577774101888478234.png" class="card-img-top"  alt="...">
+    <!--Right Side  -->
+    <div class="col  right-side">
 
-          <div class="card-body" *ngIf="CardDetails">
-            <h5 class="card-title "><b>{{CardDetails.slug}}</b></h5>
-            <p class="card-text">{{CardDetails.description}}&nbsp;</p>
-            <div class="d-flex">
-                <p > <!-- Card price -->
-                  
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                  <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
-                  </svg>
-                  <del>{{CardDetails.price}}</del>
-                </p>
-                
-                <p>
-                  &nbsp;
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-rupee" viewBox="0 0 16 16">
-                    <path d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z"/>
-                  </svg><b>{{CardDetails.discounted_price}}</b>
-                </p>
+      <!--Program Card  -->
+      <div class="card w-100 right-side-card">
+        <img src="../../assets/16577774101888478234.png" class="card-img-top" alt="...">
 
-            </div>
+        <div class="card-body" *ngIf="CardDetails">
+          <h5 class="card-title "><b>{{CardDetails.slug}}</b></h5>
+          <p class="card-text">{{CardDetails.description}}&nbsp;</p>
+          <div class="d-flex">
+            <p> <!-- Card price -->
 
-            <div>
-              <p>Class Type:
-                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="23" fill="currentColor" class="bi bi-record-fill  " viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10"/>
-                </svg><b>{{CardDetails.delivery_type}}</b></p>
-            </div>
-            <p>Level : {{CardDetails.level}}</p>
-            <p>Language : {{CardDetails.language}}</p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                <path
+                  d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
+              </svg>
+              <del>{{CardDetails.price}}</del>
+            </p>
 
-            <div class="row image-backround text-start">
+            <p>
+              &nbsp;
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-currency-rupee" viewBox="0 0 16 16">
+                <path
+                  d="M4 3.06h2.726c1.22 0 2.12.575 2.325 1.724H4v1.051h5.051C8.855 7.001 8 7.558 6.788 7.558H4v1.317L8.437 14h2.11L6.095 8.884h.855c2.316-.018 3.465-1.476 3.688-3.049H12V4.784h-1.345c-.08-.778-.357-1.335-.793-1.732H12V2H4z" />
+              </svg><b>{{CardDetails.discounted_price}}</b>
+            </p>
 
-                <div class=" w-25 " >
-                  <img src="../../assets/sample.png" class="card-img-bottom" alt="">
-                </div>
-                <p class="w-75 cared-trainer-name ">Trainer : {{CardDetails.trainers.name}}</p>
-
-            </div>
-
-            <a href="#" class="sbtn btn btn-outline-dark mt-2  " >Go somewhere</a>
           </div>
+
+          <div>
+            <p>Class Type:
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="23" fill="currentColor"
+                class="bi bi-record-fill  " viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10" />
+              </svg><b>{{CardDetails.delivery_type}}</b>
+            </p>
+          </div>
+          <p>Level : {{CardDetails.level}}</p>
+          <p>Language : {{CardDetails.language}}</p>
+
+          <div class="row image-backround text-start">
+
+            <div class=" w-25 ">
+              <img src="../../assets/sample.png" class="card-img-bottom" alt="">
+            </div>
+            <p class="w-75 cared-trainer-name ">Trainer : {{CardDetails.trainers.name}}</p>
+
+          </div>
+
+          <!-- <a href="#" class="sbtn btn btn-outline-dark mt-2  ">Go somewhere</a> -->
         </div>
+      </div>
     </div>
   </div>
 </section>
@@ -188,126 +156,104 @@
 <!--Popular Trainers  -->
 
 <section class="Popular-Trainers">
-  <div ><h3 style="color: black; font-family: 'Gill Sans', 
+  <div>
+    <h3 style="color: black; font-family: 'Gill Sans', 
     'Gill Sans MT', Calibri, 'Trebuchet MS',sans-serif;
     margin-left: 30px;
     ">Popular Trainers</h3>
   </div>
   <!-- Carousel -->
-    <div class="trainer-carasoule">
-        <carousel [itemsPerSlide]="3"
-                [singleSlideOffset]="true"
-                [noWrap]="true"
-                [interval]="0"
-                [showIndicators]="false"
-                [startFromIndex]="5"
-                [indicatorsByChunk]="true"
-                [isAnimated]="true" >
+  <div class="trainer-carasoule">
+    <carousel [itemsPerSlide]="3" [singleSlideOffset]="true" [noWrap]="true" [interval]="0" [showIndicators]="false"
+      [startFromIndex]="5" [indicatorsByChunk]="true" [isAnimated]="true">
 
-          <slide class="trainer-slide" *ngFor="let item of trainersCarousel ">
-            
-              <div class="card" style="width: 18rem;">
+      <slide class="trainer-slide" *ngFor="let item of trainersCarousel ">
 
-                <img src="../../assets/sample.png" class="trainer-card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">{{item.name}}</h5>
-                  <p class="card-text">{{item.short_bio}}</p>
-                  <p class="card-text">{{item.designation}}</p>
+        <div class="card" style="width: 18rem;">
 
-                  <!-- <a routerLink="/trainers" class="btn btn-primary">Go somewhere</a> -->
-                </div>
-              </div>
-              
-          </slide>
-          <!-- <div>
-            <span  class="icon-prev carousel-control-prev-icon my-arrow"aria-hidden="true" > </span>       
-            <br>
-            <span  class="icon-next carousel-control-next-icon my-arrow" aria-hidden="true"></span>
+          <img src="../../assets/sample.png" class="trainer-card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{item.name}}</h5>
+            <p class="card-text">{{item.short_bio}}</p>
+            <p class="card-text">{{item.designation}}</p>
+
           </div>
-          -->
-        </carousel>
-    </div>
+        </div>
+
+      </slide>
+
+    </carousel>
+  </div>
 </section>
 <!-- Success Story-->
 
 <!-- Blogs -->
 <section class="blogs">
-  <div ><h3 style="color: white; font-family: 'Gill Sans', 
+  <div>
+    <h3 style="color: white; font-family: 'Gill Sans', 
     'Gill Sans MT', Calibri, 'Trebuchet MS',sans-serif;
     margin-left: 30px;
     ">Blogs</h3>
   </div>
 
   <div class="trainer-carasoule">
-    <carousel [itemsPerSlide]="3"
-            [singleSlideOffset]="true"
-            [noWrap]="true"
-            [interval]="0"
-            [showIndicators]="false"
-            [startFromIndex]="5"
-            [indicatorsByChunk]="true"
-            [isAnimated]="true" >
+    <carousel [itemsPerSlide]="3" [singleSlideOffset]="true" [noWrap]="true" [interval]="0" [showIndicators]="false"
+      [startFromIndex]="5" [indicatorsByChunk]="true" [isAnimated]="true">
 
       <slide class="trainer-slide" *ngFor="let item of blogsDetails ">
-        
-          <div class="card" style="width: 18rem;">
 
-            <img src="../../assets/sample.png" class="trainer-card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{item.author}}</h5>
-              <p class="card-text">{{item.header}}</p>
-              <p class="card-text">{{item.content}}</p>
+        <div class="card" style="width: 18rem;">
 
-              <!-- <a routerLink="/trainers" class="btn btn-primary">Go somewhere</a> -->
-            </div>
+          <img src="../../assets/sample.png" class="trainer-card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{item.author}}</h5>
+            <p class="card-text">{{item.header}}</p>
+            <p class="card-text">{{item.content}}</p>
+
           </div>
-          
+        </div>
+
       </slide>
-      <!-- <div>
-        <span  class="icon-prev carousel-control-prev-icon my-arrow"aria-hidden="true" > </span>       
-        <br>
-        <span  class="icon-next carousel-control-next-icon my-arrow" aria-hidden="true"></span>
-      </div>
-      -->
+
     </carousel>
-</div>
+  </div>
 </section>
 <!--  -->
 <section class="Success-story">
-  <div ><h3 style="color: black; font-family: 'Gill Sans', 
+  <div>
+    <h3 style="color: black; font-family: 'Gill Sans', 
     'Gill Sans MT', Calibri, 'Trebuchet MS',sans-serif;
     margin-left: 30px;
     ">Success Stories</h3>
   </div>
 
-<div class=" Stories-carousel ">
-  <carousel [isAnimated]="true"> 
-    <div class="Success-slide-main" *ngFor="let item of successStory">
-      
-      <slide class="  Success-slide" >
+  <div class=" Stories-carousel ">
+    <carousel [isAnimated]="true">
+      <div class="Success-slide-main" *ngFor="let item of successStory">
 
-         <div class="d-flex">
+        <slide class="  Success-slide">
 
-            <div class="success-img-top" >
+          <div class="d-flex">
+
+            <div class="success-img-top">
               <img src="../../assets/collage.jpeg" class="card-img-top success-img-top" alt="...">
             </div>
-    
+
             <div class=" card-body text-start  mt-5   ">
               <h5 class="card-title">Name : {{item.user_name}}</h5>
               <br>
-              <h5 ><b>{{item.user_designation}}</b></h5>
+              <h5><b>{{item.user_designation}}</b></h5>
               <h5 class="card-title">Location : {{item.location}}</h5>
-                <br>
+              <br>
               <p class="card-text">{{item.testimonial_text}}</p>
-              
+
             </div>
-         </div>
+          </div>
 
-      </slide>
+        </slide>
 
-    </div> 
-  </carousel>
-</div>
+      </div>
+    </carousel>
+  </div>
 
 </section>
-

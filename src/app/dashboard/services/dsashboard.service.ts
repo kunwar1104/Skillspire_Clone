@@ -13,9 +13,7 @@ export class DsashboardService {
     const headers = new HttpHeaders({
       'accept':'application/json'
     });
-    console.log("sssssssssssssssss")
     return this.http.get(`${this.url}/programs`,{headers})
-    
   }
    
   allTrainers(){

@@ -8,10 +8,10 @@ export class ProgramsService {
   
    private a : any;
    private b : any;
-   private url = 'https://api.skillspire.in/api/program/filter-sorting-config';
+   public url = 'https://api.skillspire.in/api/program/filter-sorting-config';
    public programs = 'https://api.skillspire.in/api/program'; 
   
-   constructor( public http : HttpClient) { }
+   constructor( public http : HttpClient ) { }
   
    ngOnInit(): void {
     this.getProgramsPage(this.a , this.b )

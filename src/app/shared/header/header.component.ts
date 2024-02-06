@@ -38,7 +38,7 @@ public sub :Subscription | any
  
 
   async openLoginModalComponent(  ) {
-      this.bsModalRef =    this.modalService.show(LoginComponent) 
+      this.bsModalRef = this.modalService.show(LoginComponent) 
       this.bsModalRef.content.closeBtnName = 'Close';
       
       await this.bsModalRef.onHidden.subscribe((result: any) =>  {

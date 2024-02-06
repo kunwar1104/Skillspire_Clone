@@ -1,2 +1,109 @@
 <app-my-portal></app-my-portal>
-<p>user-educ works!</p>
+<!--  -->
+<div class=" container d-flex justify-content-center align-items-center main  ">
+        <div class=""><img src="../../../../assets/educational-details.png" alt="" class="img" ></div>
+        <div class="text">
+            <h3 >Looks like you haven’t provided <br> any education details.</h3>
+            <button class="btn btn-primary my-btn" (click)="openModal(template)">Add More +</button>
+        </div>
+</div>
+
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+     
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left"><b>Education Details</b></h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form class="row  "  >
+      
+    <div class="col-6 ">
+      <label class="w-100" for="">Degree<span>*</span>
+        <br>
+       <input type="text" class="w-100 form-control ">
+      </label>
+    </div>
+
+    <div class="col-6">
+      <label class="w-100" for="">Major<span>*</span>
+        <br>
+        <input type="text" class="form-control">
+       </label>
+    </div>
+
+    <div class="col-6">
+       <label class="w-100" for="">School Name<span>*</span>
+        <br>
+        <input type="text" class="form-control">
+       </label>
+    </div>   
+
+    <div class="col-6">
+       <label class="w-100" for="">Graduation Year<span>*</span>
+        <br>
+        <input type="text" class="form-control">
+       </label>
+    </div>
+
+    <div class="col-6">
+       <label class="w-100" for="">Start Date<span>*</span>
+        <br>
+        <input type="date" class="form-control">
+       </label>
+    </div>
+
+    <div class="col-6">
+       <label class="w-100" for="">End Date<span>*</span>
+        <br>
+        <input type="date" class="form-control">
+       </label>
+    </div>
+
+    <div class="col-6">
+       <label class="w-100" for="">Location<span>*</span>
+        <br>
+        <input type="text" class="form-control">
+       </label>
+    </div>  
+
+    <div class="col-6">
+       <label class="w-100" for="">Description<span>*</span>
+        <br>
+        <input type="text" class="form-control" >
+       </label>
+    </div> 
+    <div class="col-6">  
+       <label class="w-100" for="">Grade<span>*</span>
+        <br>
+        <input type="text" class="form-control">
+       </label>
+    </div>
+
+    <div class="col-6">
+       <label class="w-100" for="">Cgpa<span>*</span>
+        <br>
+        <input type="text" class="form-control">
+       </label>
+    </div>  
+
+    <div class="col-6">
+       <label class="w-100" for="">Percentage<span>*</span>
+        <br>
+        <input type="text" class="form-control">
+       </label>
+    </div>  
+
+    <div class="col-6">
+       <label class="w-100" for="">Certificate Path<span>*</span>
+        <br>
+        <input type="text" class="form-control">
+       </label>
+    </div>   
+
+    </form>
+
+  </div>
+</ng-template>

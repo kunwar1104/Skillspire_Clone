@@ -13,6 +13,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DemoComponent } from './prectice/demo/demo.component';
 import { ChildComponent } from './prectice/child/child.component';
+// import { appConfig } from './app.config';
 
 @NgModule({
     declarations: [
@@ -20,10 +21,12 @@ import { ChildComponent } from './prectice/child/child.component';
         DemoComponent,
         ChildComponent,
     ],
-    providers: [],
+    providers: [
+        // appConfig.providers
+    ],
     bootstrap: [AppComponent],
     imports: [
-        BrowserModule,
+    BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,

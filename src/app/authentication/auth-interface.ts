@@ -19,6 +19,7 @@ export interface UpdateUserProfile {
     last_name:string,
     email_id: string ,
     password:string ,
+    phone_no: number,
     referral_code:string,
     is_student: true,
     receive_newsletter:true,

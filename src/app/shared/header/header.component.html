@@ -35,11 +35,11 @@
         </ul>  
         
         <div *ngIf="!isLogedIn"  >
-           <button type="button" class="btn btn-outline-light me-3" (click)=" openLoginModalComponent()"  >Login</button>
+           <button type="button" class="btn btn-outline-light me-3" (click)=" openLoginModalComponent()">Login</button>
         </div>
 
-        <div >
-           <button type="button" class="btn btn-outline-light "  (click)="openSignupModalComponent()" >SignUp</button>
+        <div *ngIf="!isLogedIn">
+           <button type="button" class="btn btn-outline-light "  (click)="openSignupModalComponent()">SignUp</button>
         </div>
         
       </div>

@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { ProgramsService } from '../services/programs.service';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, concat } from 'rxjs';
 
 @Component({
   selector: 'app-programs',
@@ -13,8 +13,8 @@ export class ProgramsComponent {
 
   public queryParams_data: any = {};
   public sortBy: string = 'start_date';
-  public onScrollNewProgramData: any;
-  public onScrollNewProgramData_01: any;
+  onScrollNewProgramData: any;
+  onScrollNewProgramData_01: any;
   private loading = false;
 
   programs_Data: FormGroup | any;
@@ -28,15 +28,21 @@ export class ProgramsComponent {
   b!: any;
   data_Programs: any;
   subscribeOnes: any;
- public subscription!: Subscription 
+  trainerData: any;
+  is_card_Hide : boolean = true;
 
-    constructor(  private programsApi: ProgramsService,
-                  private actiRouter: ActivatedRoute,
-                  private router: Router               ) { }
+  public subscription!: Subscription
+
+  constructor(private programsApi: ProgramsService,
+    private actiRouter: ActivatedRoute,
+    private router: Router) { }
 
 
   ngOnInit() {
-    this.get_Programs_Data()
+    this.get_Programs_Data();
+    this.get_Filter_Sorting_Data();
+
+    this.programsApi.getProgramsPage(this.queryParams_data, this.sortBy).subscribe((res: any) => {})
 
     this.programs_Data = new FormGroup({
       selected_Check_Box: new FormArray([])
@@ -61,51 +67,67 @@ export class ProgramsComponent {
     this.get_Filter_Sorting_Data()
 
   }
+  
+  get_Programs_Data() {
+    this.programsApi.getProgramsPage(this.queryParams_data, this.sortBy).subscribe((res: any) => {
+      this.programsCard = res.DATA.programs
 
-// On scoll API call  
+      console.log("queryParams_data =", this.queryParams_data)
+      console.log("sortBy =", this.sortBy)  // here "sortBy" variable have value "satrt_Date" which store in variable 
+      console.log("", res)
+    })
+  }
+  // On scoll API call  
   @HostListener('window:scroll', ["$event"])
-  onScroll(event:Event) {
+  onScroll(event: Event) {
     const scrollThreshold = 500;
     const windowHeight = window.innerHeight;
     const scrollPostion = window.scrollY;
     const documentHeight = document.body.offsetHeight;
 
     if (scrollPostion + windowHeight >= documentHeight - scrollThreshold && !this.loading) {
-    
-      this.loading = true; 
-    
+
+      this.loading = true;
+
       if (this.subscription) {
         this.subscription.unsubscribe();
       }
 
+// Page 1 Api call here 
+
       this.subscription = this.programsApi.scrollApi().subscribe((res: any) => {
         console.log(res.DATA.programs)
         this.onScrollNewProgramData = res.DATA.programs
-        console.log(res.DATA.programs.category_details)
-        res.DATA.programs.map((res:any)=> {
+        console.log(this.onScrollNewProgramData)
+        res.DATA.programs.map((res: any) => {
           console.log(res.trainerData.photo)
         })
 
-        this.programsCard.push(this.onScrollNewProgramData)
+        // this.programsCard.push(this.onScrollNewProgramData)
+        // this.programsCard.concat(this.onScrollNewProgramData)
         if (this.subscription) {
           this.subscription.unsubscribe();
         }
-          this.programsApi.scrollApi_2().subscribe((res:any) => {
-            console.log(res.DATA.programs)
-            this.onScrollNewProgramData_01 =res.DATA.programs;
-             this.programsCard.push(this.onScrollNewProgramData)    
 
-             if (this.subscription) {
-              this.subscription.unsubscribe();
-            }
+// Page 2 Api call here 
+
+        this.programsApi.scrollApi_2().subscribe((res: any) => {
+          console.log(res.DATA.programs)
+          this.onScrollNewProgramData_01 = res.DATA.programs;
+          // this.programsCard.concat(this.onScrollNewProgramData)
+          // this.programsCard.push(this.onScrollNewProgramData)
+
+          if (this.subscription) {
+            this.subscription.unsubscribe();
+          }
 
 
-          })
+        })
       })
 
     }
   }
- 
+
 
   get_Filter_Sorting_Data() {
     this.actiRouter.queryParams.subscribe((res: any) => {
@@ -113,15 +135,7 @@ export class ProgramsComponent {
     })
   }
 
-  get_Programs_Data() {
-    this.programsApi.getProgramsPage(this.queryParams_data, this.sortBy).subscribe((res: any) => {
-      this.programsCard = res.DATA.programs
-        
-      console.log("queryParams_data =",this.queryParams_data)
-      console.log("sortBy =",this.sortBy)  // here "sortBy" variable have value "satrt_Date" which store in variable 
-      console.log("",res)
-    })
-  }
+  
 
   // On click filters checkBox
 
@@ -131,7 +145,7 @@ export class ProgramsComponent {
 
     let parameterValue: any = {}
     this.queryParams_data = parameterValue
-     console.log(parameterValue)
+    console.log(parameterValue)
 
     const selected_Check_Box = (this.programs_Data.controls['selected_Check_Box'] as FormArray)
     // let  checked_Value  : boolean = true
@@ -168,7 +182,7 @@ export class ProgramsComponent {
     });
 
     this.router.navigate(['./programs'], { queryParams: parameterValue })  // here queryParams add at url  - 
-                                                                     // - with key-value pair end add ? at end 
+    // - with key-value pair end add ? at end 
     this.get_Programs_Data()
   }
 
@@ -178,10 +192,10 @@ export class ProgramsComponent {
     this.get_Programs_Data()
   }
 
-// Onclick card card detail page showes
-  cardDetails(params:any){
+  // Onclick card card detail page showes
+  cardDetails(params: any) {
     console.log(params)
-    this.router.navigate(['./programs',params])
+    this.router.navigate(['./programs', params])
   }
 
 }

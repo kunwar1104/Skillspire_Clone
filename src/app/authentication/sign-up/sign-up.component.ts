@@ -2,11 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { AuthService } from '../auth.service';
-import { Signup } from '../auth-interface';
-import { NotificationComponent } from './../../shared/notification/notification.component';
 import { NotificationService } from './../../shared/notification/notification.service';
-import { Router, Routes } from '@angular/router';
-import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -26,13 +23,15 @@ export class SignUpComponent {
   signinMessage: string | undefined;
   message: string | undefined;
   sending: boolean = false
-
+  errorMessage :   any = {};
+  
   constructor(
     public bsModalRef: BsModalRef,
     public authService: AuthService,
     private notification: NotificationService,
     private router: Router,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    
 
   ) { }
 
@@ -58,29 +57,41 @@ export class SignUpComponent {
     if (this.signinForm.value) {
       let data = this.signinForm.value
       console.log(data)
-      this.authService.signUp(data).subscribe((res) => {
-        console.log(res)
-        const response = res
-        response.JSON.stringify(response)
-        console.log("response =",response)
+      this.authService.signUp(data).subscribe(
+      {
+        next:(res) => {
+          console.log(res)
+          const response = res
+          // if (res ) {
+          //    this.notification.showNotification('Signup Successfull', 'success', true, 2000)
+          //     this.bsModalRef.hide()
+          //     console.log("ifffffffffffffffff")
+          // }
+          // else {
+            
+          //   console.log("else")  
+          // }
+          },
+          error :(error) => {
+            console.log(error)
+            console.log(error.statusText)
+            this.errorMessage = error.statusText;
+            if(error){
+              this.notification.showNotification(this.errorMessage, "failed", true, 2000)
+              this.bsModalRef.hide()
 
-        if (res) {
-          this.notification.showNotification('Signup Successfull', 'success', true, 2000)
-          setTimeout(() => {
-            this.bsModalRef.hide()
-            this.bsModalRef = this.modalService.show(LoginComponent);
-            this.modalService
-          }, 2000)
-        }
-        else {
-          this.notification.showNotification("Signup Failed", "failed", true, 1000)
-          this.sending = false;
-        }
-
-
-
-      })
+              this.sending = false;
+            }
+          },
+          complete:() => {
+            console.log()
+            // if ( ) {
+              this.notification.showNotification('Signup Successfull', 'success', true, 2000)
+               this.bsModalRef.hide()
+          //  }
+          }
+      }
+      )
     }
-
   }
 }

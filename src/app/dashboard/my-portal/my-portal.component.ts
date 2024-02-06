@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { PersonalInfoComponent } from './personal-info/personal-info.component';
 
 @Component({
   selector: 'app-my-portal',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./my-portal.component.scss']
 })
 export class MyPortalComponent {
+   
+   
+
+   
 
 }

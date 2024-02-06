@@ -5,6 +5,8 @@ import { MyPortalComponent } from './my-portal.component';
 import { PersonalInfoComponent } from './personal-info/personal-info.component';
 import { UserEducComponent } from './user-educ/user-educ.component';
 import { ProfDetailComponent } from './prof-detail/prof-detail.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ProfDetailComponent } from './prof-detail/prof-detail.component';
   ],
   imports: [
     CommonModule,
-    MyPortalRoutingModule
+    MyPortalRoutingModule,
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ]
 })
 export class MyPortalModule { }

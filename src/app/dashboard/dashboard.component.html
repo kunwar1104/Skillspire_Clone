@@ -68,7 +68,7 @@
 
       <slide class=" my-slide" *ngFor="let item of ProgramsCategory; let i=index">
         <div>
-          <a class="my-slide-text {{item.name}}" [ngClass]="{'active': i === activeSlideIndex}"
+          <a class="my-slide-text " [ngClass]="{'active': i === activeSlideIndex}"
             (click)="particularProgramCategory(item.name, i,item.id)">{{item.name}}</a>
         </div>
       </slide>

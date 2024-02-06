@@ -4,16 +4,17 @@ import { DashbordLayoutComponent } from './layout/dashbord-layout/dashbord-layou
 
 const routes: Routes = [
   { path: "", 
-    redirectTo: 'auth',
+    redirectTo: '',
     pathMatch : 'full'
+  },
+  
+  {
+    path: "",
+    loadChildren: () => import ('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
     path: "auth",
     loadChildren: () => import ('./authentication/authentication.module').then(m => m.AuthenticationModule)
-  },
-  {
-    path: "dashboard",
-    loadChildren: () => import ('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
     path: "",

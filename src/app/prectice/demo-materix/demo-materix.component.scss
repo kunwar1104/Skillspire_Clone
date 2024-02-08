@@ -1,0 +1,59 @@
+.matrix-container{
+    margin: 30px;
+    }
+    .rows-column{
+        display: flex;
+        gap: 30px;
+        margin-bottom: 15px
+    }
+    
+    .rows-column div{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .rows-column div input{
+        width: 80px;
+    };
+    
+    .matrix{
+        display: flex;
+        gap: 40px;
+        margin-bottom: 20px;
+    }
+    
+    .matrix input{
+        border: none;
+      border-bottom: 2px solid black;
+      outline: none;
+      width:70px;
+      margin: 5px 5px;
+      padding-left: 10px;
+      box-sizing: border-box;
+    };
+    .matrix h4{
+        margin-bottom: 0px;
+    };
+    
+    .matrix-result{
+        width: 200px;
+        height: auto;
+        background-color: #e4dfdf;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin:10px 50px ;
+        padding: 10px;
+    
+    };
+    
+    .matrix-result h4{
+        color: rgb(100, 104, 104);
+        font-weight: bold;
+    };
+    
+    .matrix-result table tr td{ 
+        padding: 5px;
+    }

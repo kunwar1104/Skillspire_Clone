@@ -14,37 +14,51 @@
          </button>
       </div>
       <div class="modal-body">
-         <form class="row  " [formGroup]="data" (ngSubmit)="submit(data.value)">
+         <form class="row  " [formGroup]="prof_Form" (ngSubmit)="submit(prof_Form.value)">
 
                <div class="col-6 ">
                   <label class="w-100" for="">Company Name<span>*</span>
                      <br>
-                     <input type="text" class="w-100 form-control ">
+                     <input type="text" class="w-100 form-control" formControlName="company_name" required>
+                     <div class="alert alert-danger" *ngIf="prof_Form.get('company_name').invalid && prof_Form.get('company_name').touched">
+                        <small *ngIf="prof_Form.get('company_name').hasError('required')">First Name is Required</small>
+                        <small *ngIf="prof_Form.get('company_name').hasError('pattern')">First Name Require Aplhabat only</small>
+                    </div>
                   </label>
                </div>
 
                <div class="col-6">
                   <label class="w-100" for="">Positon<span>*</span>
                      <br>
-                     <input type="text" class="form-control">
+                     <input type="text" class="form-control" formControlName="position" required >
+                     <div class="alert alert-danger" *ngIf="prof_Form.get('position').invalid && prof_Form.get('position').touched">
+                        <small *ngIf="prof_Form.get('position').hasError('required')">Positon is Required</small>
+                        <small *ngIf="prof_Form.get('position').hasError('pattern')">Positon Require Aplhabat only</small>
+                    </div>
                   </label>
                </div>
 
                <div class="col-6">
                   <label class="w-100" for="">Start Date<span>*</span>
                      <br>
-                     <input type="date" class="form-control">
+                     <input type="date" class="form-control" formControlName="start_date">
+                     <div class="alert alert-danger" *ngIf="prof_Form.get('start_date').invalid && prof_Form.get('start_date').touched">
+                        <small *ngIf="prof_Form.get('start_date').hasError('required')">Start Date is Required</small>
+                    </div>
                   </label>
                </div>
 
                <div class="col-6">
                   <label class="w-100" for="">End Date<span>*</span>
                      <br>
-                     <input type="date" class="form-control">
+                     <input type="date" class="form-control" formControlName="end_date">
+                     <div class="alert alert-danger" *ngIf="prof_Form.get('end_date').invalid && prof_Form.get('end_date').touched">
+                        <small *ngIf="prof_Form.get('end_date').hasError('required')">End Date is Required</small>
+                     </div>
                   </label>
                </div>
-               <p></p>
-               <button class="btn btn-primary" type="submit">Submit</button>
+               <p> Status :{{prof_Form.status}}</p>
+               <button class="btn btn-primary"  type="submit">Submit</button>
          </form>
 
       </div>

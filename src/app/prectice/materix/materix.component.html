@@ -1,0 +1,75 @@
+<div class="container main " style="background-color: whitesmoke;">
+
+    <div class="  m-auto pt-5" style="background-color: wheat">
+
+            <form class="row  " [formGroup]="materix01_Form" (ngSubmit)="materix_submit()">
+               <div class="col d-flex flex-column">
+                    <h3 class="ms-5">Materix 1</h3>
+
+                    <label for=""> Row :</label>
+                    <input class="w-50" type="text" id="materix01_row"  formControlName="materix01_row" min="1">
+                    <div *ngIf="">
+                        <small></small>
+                    </div>
+
+                    <label for=""> Colum :</label>
+                    <input class="w-50" type="text" id="materix01_col" formControlName="materix01_col" min="1">
+                    <div *ngIf="">
+                        <small></small>
+                    </div>
+                </div> 
+                <div class="col d-flex flex-column">
+                    <h3 class="ms-5">Materix 2</h3>
+
+                    <label for=""> Row :</label>
+                    <input class="w-50" type="text" id="materix02_row" formControlName="materix02_row" min="1">
+
+                    <label for=""> Colum :</label>
+                    <input class="w-50" type="text" id="materix02_col" formControlName="materix02_col" min="1">
+                </div>
+
+                <div class=" btn-group mt-3 mb-2">
+                    <button type="submit" class="btn btn-primary " >Genrate Matrix</button>
+                    <button class="btn btn-primary" type="reset">Reset</button>
+                </div>
+
+            </form>
+    </div>
+
+    <div class="materix-table row">
+
+        <div class="col">
+        <p>Materix : 1</p><br>
+
+            <table >
+             <tr *ngFor="let row of materix_1;  let rowIndex = index;" >
+                <!-- <td>{{row}}</td> -->
+              <ng-container *ngFor="let cell of row; let colIndex = index">
+                <td>
+                    <input class="m-input" type="text" [formControl]="cell" placeholder="Cell {{rowIndex}} - {{colIndex}}">
+                </td>
+              </ng-container>
+              
+            </tr>  
+            </table>
+        </div>
+
+        <div class="col">
+        <p>Materix : 2</p><br>
+
+            <table >
+                <tr *ngFor="let row of materix_2 let rowIndex = index;" >
+                   <!-- <td>{{row}}</td> -->
+                 <ng-container *ngFor="let cell of row; let colIndex = index">
+                   <td>
+                       <input class="m-input" type="text" [formControl]="cell" [placeholder]="">
+                   </td>
+                 </ng-container>
+                 
+               </tr>  
+               </table>
+        </div>
+
+    </div>
+
+</div>

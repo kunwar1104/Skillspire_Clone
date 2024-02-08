@@ -41,3 +41,11 @@ height: 250px;
   background-color: #00B6F0;
   margin-left: 500px;
 }
+.save-btn:disabled{
+  cursor: not-allowed;
+}
+.succ-msg{
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+}

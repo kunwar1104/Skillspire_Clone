@@ -15,18 +15,21 @@ import { CookieService } from 'ngx-cookie-service';
 export class PersonalInfoComponent {
   [x: string]: any;
   // signinForm!: FormGroup | any;
-  user_Info: FormGroup<any> | any = {};
+  user_Info: FormGroup<any> | any ;
   title?: string;
   closeBtnName?: string;
   list: string[] = [];
   data: any;
   passord_pattern = /^[a-zA-Z0-9]{8}$/;
-  name_patter = /^[a-zA-Z]{3,15}$/;
-  number_pattern = /^[0-9]{10}$/
+  name_pattern = /^[a-zA-Z]{3,15}$/ ;
+  number_pattern = /^[0-9]{10}$/ ;
+  email_id = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.com$|^".*"@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*\.com$/
+  ;
   signinMessage: string | undefined;
   message: string | undefined;
   sending: boolean = false;
   token : any ;
+  update_Message : string | any;
 
   constructor(
     public bsModalRef: BsModalRef,
@@ -41,17 +44,13 @@ export class PersonalInfoComponent {
 
     this.setTokenAsCookie()
 
-    this.token =  localStorage.getItem('accessToken')
-    console.log(this.token)
+   
       this.authService.userProfile().subscribe((res:any) => {
         console.log(res)
-        // this.user_Info = res
+        console.log(res.first_name)
       },
-      // (err:any)=>{
-      //   console.log(err)
-
-      // }
       )  
+
     // this.authService.updateUserProfile(this.token).subscribe((res) => {
     //    console.log(res);
 
@@ -59,10 +58,10 @@ export class PersonalInfoComponent {
     
 
     this.user_Info = new FormGroup({
-      first_name: new FormControl('', [Validators.required, Validators.pattern(this.name_patter)]),
-      last_name: new FormControl('', [Validators.required, Validators.pattern(this.name_patter)]),
-      email_id: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required, Validators.pattern(this.passord_pattern)]),
+      first_name: new FormControl('', [Validators.required, Validators.pattern(this.name_pattern)]),
+      last_name: new FormControl('', [Validators.required, Validators.pattern(this.name_pattern)]),
+      email_id: new FormControl('', [Validators.required, Validators.pattern(this.email_id)]),
+      // password: new FormControl('', [Validators.required, Validators.pattern(this.passord_pattern)]),
       referral_code: new FormControl('', [Validators.required,]),
       phone_no: new FormControl('', [Validators.required, Validators.pattern(this.number_pattern)]),
       is_student: new FormControl('', [Validators.required]),
@@ -72,20 +71,22 @@ export class PersonalInfoComponent {
   
     });
 
-    this.authService.userProfile().subscribe((res) => {
+    this.authService.userProfile().subscribe((res:any) => {
          console.log(res)
+         console.log(res.first_name)
+
          
 
          this.user_Info.patchValue({
-          first_name: res,
-          last_name: res,
-          email_id:  res,
-          password: res,
-          referral_code:  res,
-          phone_no:  res,
-          is_student:  res,
-          receive_newsletter:  res,
-          terms: res
+          first_name: res.first_name,
+          last_name: res.last_name,
+          email_id:  res.email_id,
+          // password: res.password,
+          referral_code:  res.referral_code,
+          phone_no:  res.phone_no,
+          is_student:  res.is_student,
+          receive_newsletter:  res.receive_newsletter,
+          terms: res.terms
         });
     })    
 
@@ -113,6 +114,14 @@ export class PersonalInfoComponent {
   submit(data:any ){
     console.log(this.user_Info.value)
     console.log(data)
+
+    this.authService.updateUserProfile(data).subscribe((res:any) => {
+         console.log(res)
+        
+         if(res) {
+           this.update_Message = 'Updated SuccessFull'   
+         }
+    })
 
   }
 }

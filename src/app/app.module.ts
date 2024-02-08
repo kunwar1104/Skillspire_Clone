@@ -13,6 +13,8 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DemoComponent } from './prectice/demo/demo.component';
 import { ChildComponent } from './prectice/child/child.component';
+import { MaterixComponent } from './prectice/materix/materix.component';
+import { DemoMaterixComponent } from './prectice/demo-materix/demo-materix.component';
 // import { appConfig } from './app.config';
 
 @NgModule({
@@ -20,6 +22,8 @@ import { ChildComponent } from './prectice/child/child.component';
         AppComponent,
         DemoComponent,
         ChildComponent,
+        MaterixComponent,
+        DemoMaterixComponent,
     ],
     providers: [
         // appConfig.providers

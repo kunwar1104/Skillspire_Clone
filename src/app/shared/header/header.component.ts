@@ -89,12 +89,12 @@ public sub :Subscription | any
     
     if(token ){
       localStorage.clear()
-      this.auth.logOut(this.dataa )
+      this.auth.logOut(token )
       this.notification.showNotification("LogedOut Suceessful ","success", true,1000)
 
       this.isLogedIn = false
     }
- 
+ console.log(token)
    
   }
 

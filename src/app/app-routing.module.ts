@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AlertComponent } from 'ngx-bootstrap/alert';
 import { DemoComponent } from './prectice/demo/demo.component';
 import { MaterixComponent } from './prectice/materix/materix.component';
-import { DemoMaterixComponent } from './prectice/demo-materix/demo-materix.component';
+import { QuizComponent } from './prectice/quiz/quiz.component';
 
 
 const routes: Routes = [
@@ -28,9 +28,10 @@ const routes: Routes = [
   path: "materix",
   component: MaterixComponent
  },
+ 
  {
-  path: 'demo-m',
-  component: DemoMaterixComponent
+  path : "quiz",
+  component : QuizComponent
  }
   
   

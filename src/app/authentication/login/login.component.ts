@@ -79,7 +79,7 @@ export class LoginComponent {
              console.log(error.statusText)
              this.errorMessage = error.statusText
              if(error){
-              this.notification.showNotification( this.errorMessage, "failed", true, 2000);
+              this.notification.showNotification( this.errorMessage, "error", true, 2000);
               this.bsModalRef.hide();
 
              }

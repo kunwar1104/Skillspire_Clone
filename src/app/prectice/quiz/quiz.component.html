@@ -1,0 +1,24 @@
+<div class="container mt-3 mb-5 main-div" *ngIf="quiz_Data" >  <!--  Main Div -->
+   <div class="container pt-3">
+    <div class="row pt-5 titles">  
+      <h4 class="col">Exam : {{quiz_Data.title}}</h4>
+      <h4 class="col">Time Duration :{{quiz_Data.total_time}}</h4>
+      <h4 class="col">Total Marks : {{quiz_Data.total_marks}}</h4>
+      <!-- <p>Subject : {{subject.subject_name}}</p> -->
+      <!-- <h4 class="col">{{subject.subjectQueCount}}</h4> -->
+    </div>
+   </div> 
+
+    <div  > <!-- Questions -->
+        <div [innerHTML]="questions.question" *ngIf="questions !== undefined ; " >{{questions.question}}</div><br>
+
+        <div  >
+            <button  (click)="previous(id)" >Preivous  </button>
+
+            <button (click)="next(id)">Next</button>
+
+        </div>
+       
+    </div>
+
+</div>

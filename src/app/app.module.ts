@@ -14,7 +14,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { DemoComponent } from './prectice/demo/demo.component';
 import { ChildComponent } from './prectice/child/child.component';
 import { MaterixComponent } from './prectice/materix/materix.component';
-import { DemoMaterixComponent } from './prectice/demo-materix/demo-materix.component';
+import { QuizComponent } from './prectice/quiz/quiz.component';
 // import { appConfig } from './app.config';
 
 @NgModule({
@@ -23,14 +23,15 @@ import { DemoMaterixComponent } from './prectice/demo-materix/demo-materix.compo
         DemoComponent,
         ChildComponent,
         MaterixComponent,
-        DemoMaterixComponent,
+        QuizComponent
     ],
     providers: [
         // appConfig.providers
     ],
     bootstrap: [AppComponent],
     imports: [
-    BrowserModule,
+        BrowserModule,
+        AlertModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         ReactiveFormsModule,

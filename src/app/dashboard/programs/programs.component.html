@@ -10,9 +10,11 @@
                     <p>{{lable.title}}</p>
 
                     <label class="m-input" for="check" *ngFor="let item of lable[lable.key] let t = index ">
+
                         <input id="check" type="checkbox" formArrayName="selected_Check_Box"
                             (change)="dataFillters($event, lable.key)" [value]="item.slug"
                             [checked]="item.checked">&nbsp;{{item.name}}{{item.checked}}
+                            
                     </label>
 
                 </div>

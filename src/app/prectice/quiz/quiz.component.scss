@@ -11,3 +11,44 @@
   border-radius: 15px 15px 0px 0px ;
 //   padding-bottom: 20px;
 }
+// .form{
+//   background-color: aliceblue;
+// }
+.que_ans_space{
+  height: 310px;
+  background-color: bisque;
+  border-radius: 00px 00px 20px 20px;
+}
+.ques-col-1{
+  width: 450px;
+  display: flex;
+  // background-color: skyblue;
+  margin-left: 20px;
+  align-items: baseline;
+}
+.ques-col-2{
+  width: 450px;
+  display: flex;
+  // background-color: skyblue;
+  margin-left: 20px;
+  align-items: baseline;
+
+}
+.form-option{
+  width: 100px;
+  background-color: white;
+}
+.form-input{
+  width: 200px;
+  height: 50px;
+  border-radius: 0px 10px 0;
+  display: inline-flex;
+  background-color: #ffd9d9;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.result{
+  background-color: aliceblue;
+  height: 500px;
+  
+}

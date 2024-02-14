@@ -37,7 +37,6 @@ export class ProgramsComponent {
     private actiRouter: ActivatedRoute,
     private router: Router) { }
 
-
   ngOnInit() {
     this.get_Programs_Data();
     this.get_Filter_Sorting_Data();
@@ -47,7 +46,6 @@ export class ProgramsComponent {
     this.programs_Data = new FormGroup({
       selected_Check_Box: new FormArray([])
     })
-
 
     // for shorting and filtering
 
@@ -65,7 +63,6 @@ export class ProgramsComponent {
     })
 
     this.get_Filter_Sorting_Data()
-
   }
   
   get_Programs_Data() {
@@ -120,11 +117,8 @@ export class ProgramsComponent {
           if (this.subscription) {
             this.subscription.unsubscribe();
           }
-
-
         })
       })
-
     }
   }
 
@@ -134,8 +128,6 @@ export class ProgramsComponent {
       console.log(res)
     })
   }
-
-  
 
   // On click filters checkBox
 

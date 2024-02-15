@@ -21,9 +21,9 @@ export class DemoComponent {
       this.allowNewServer = true;
     }, 2000)
   }
-   
-  
 
+   
+   
   getServerStatus(){
     this.serverStatus
   }
@@ -51,14 +51,10 @@ obs = new Observable((observer) => {
      setTimeout(() => { observer.next("4") },4000);// after error or complete event  this code is never called
      setTimeout(() => { observer.next("5") },5000);
 
-    
-
-
-
-
    })  
 
    ngOnInit(): void {
+
     this.obs.subscribe(
      {
        next: ( val) => {
@@ -71,6 +67,19 @@ obs = new Observable((observer) => {
          console.log("Complited")
        }
      }
-    )
-   }
+    );
+
+    // for  revars peramid
+    let n = 5 
+
+    for ( let i = n ; i >= 1; i--)  {
+          let star = "*";
+          let space = " ";
+          console.log(star.repeat(i));
+    }
+
+   };
+
+
+
 }

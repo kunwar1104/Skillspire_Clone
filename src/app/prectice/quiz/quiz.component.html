@@ -4,8 +4,7 @@
             <h4 class="col">Exam : {{quiz_Data.title}}</h4>
             <h4 class="col">Time Duration :{{quiz_Data.total_time}}</h4>
             <h4 class="col">Total Marks : {{quiz_Data.total_marks}}</h4>
-            <!-- <p>Subject : {{subject.subject_name}}</p> -->
-            <!-- <h4 class="col">{{subject.subjectQueCount}}</h4> -->
+           
         </div>
     </div>
 
@@ -23,18 +22,37 @@
                 <button class="btn btn-primary btn-lg ">Time Duration : 00:
                     {{count_down_time_min}}:{{count_down_time_sec < 10 ? "0" + count_down_time_sec : count_down_time_sec
                         }}</button><br>
-                        <button class="btn  btn-success mt-3 btn-lg  ">Subject : {{subject}}</button>
+                        <button  class="btn  btn-success mt-3 btn-lg me-2 " (click)="subject_21_F()" >Subject : {{subject_21}}</button>
+                        <button  class="btn  btn-success mt-3 btn-lg  " (click)="subject_22_F()" >Subject : {{subject_22}}</button>
+
+                      <!-- for 21  -->
+                        <div class="mt-2" *ngIf="is_hide_section_21_F">
+                            <button class="btn btn-warning" (click)="subject_21_section_A()">Section A</button>
+                            <button class="btn btn-warning ms-2" (click)="subject_21_section_B()">Section B</button>
+                            <button class="btn btn-warning ms-2" (click)="subject_21_section_C()">Section C</button>
+                         </div>
+
+                      <!-- for 22  -->
+                         <div class="mt-2" *ngIf="is_hide_section_22_F">
+                            <button class="btn btn-info" (click)="subject_22_section_A()">Section A</button>
+                            <button class="btn btn-info ms-2" (click)="subject_22_section_B()">Section B</button>
+                            <button class="btn btn-info ms-2" (click)="subject_22_section_C()">Section C</button>
+                         </div>
             </div>
         </div>
 
         <div class=" que_ans_space mt-2" *ngIf="is_Hide_Quiz_On_Time_Out">
 
             <div class="p-2">
+            <div class="row">
+                <P class="col">{{commen_Subject_Name}}</P>
+                <p class="col"> {{section_Name}}</p>
+            </div>
                 <h5><b>Question {{que_id}} of 10:</b></h5>
             </div><br>
             <!-- Question  text -->
             <div class="container" [innerHTML]="questions.question" *ngIf="questions !== undefined ; ">
-                <p><strong>
+                <p class="p-2"><strong>
                         <h4>{{questions.question}}</h4>
                     </strong></p>
             </div><br>
@@ -43,32 +61,32 @@
 
                 <ng-container>
 
-                    <div class="ques-col-1">
+                    <div class=" row container ques-col-1">
 
-                        <label type="radio" class="form-input" for='option_1'>
+                        <label type="radio" class="col form-input" for='option_1'><b>A</b>&nbsp;&nbsp;
 
                             <input type="radio" id='option_1' name="options" value="option_1" formControlName="options"
                                 (click)="ans_by_user($event, options_as_Key[4], questions.id  )">&nbsp;
                             <p [innerHTML]="questions.option1">{{questions.option1}}</p>
                         </label>
 
-                        <label type="radio" class="form-input " for="option_2 ">
+                        <label type="radio" class=" col form-input " for="option_2 "><b>B</b>&nbsp;&nbsp;
                             <input type="radio" id='option_2' name="options" value="option_2" formControlName="options"
                                 (change)="ans_by_user($event, options_as_Key[5], questions.id  )">&nbsp;
                             <p [innerHTML]="questions.option2">{{questions.option2}}</p>
                         </label>
 
-                    </div>
+                    <!-- </div> -->
 
-                    <div class="ques-col-2">
+                    <!-- <div class="ques-col-2"> -->
 
-                        <label type="radio" class="form-input " for="option_3">
+                        <label type="radio" class=" col form-input " for="option_3"><b>C</b>&nbsp;&nbsp;
                             <input type="radio" id='option_3' name="options" value="option_3" formControlName="options"
                                 (change)="ans_by_user($event, options_as_Key[6], questions.id  )">&nbsp;
                             <p [innerHTML]="questions.option3">{{questions.option3}}</p>
                         </label>
 
-                        <label type="radio" class="form-input " for="option_4">
+                        <label type="radio" class="col form-input " for="option_4"><b>D</b>&nbsp;&nbsp;
                             <input type="radio" id='option_4' name="options" value="option_4" formControlName="options"
                                 (change)="ans_by_user($event, options_as_Key[7] ,questions.id )">&nbsp;
                             <p [innerHTML]="questions.option4">{{questions.option4}}</p>
@@ -82,11 +100,11 @@
     <!-- Previous, Nexxt, & Finish button  -->
         <div class="row" *ngIf="questions !== undefined ; ">
 
-            <div class="col" *ngIf="is_Hide_Quiz_On_Time_Out">
+            <div class="col mt-2 mml-2" *ngIf="is_Hide_Quiz_On_Time_Out">
 
-                <button class="btn btn-primary " (click)="previous(id)">Preivous</button>
+                <button *ngIf="is_Hide_Previous_Btn"  class="btn btn-primary " (click)="previous(id)">Preivous</button>
 
-                <button class="btn btn-primary ms-2" (click)="next(id)"> Next </button>
+                <button *ngIf="is_Hide_Next_Btn" class="btn btn-primary ms-2" (click)="next(id)"> Next </button>
 
             </div>
 
@@ -101,7 +119,8 @@
              <h1 class="text-center pt-5"><b>Result</b></h1>
             
             <div class="container ">
-                 <p>Total Marks Obtain /10 </p>
+          
+          <p class="text-center">Total Marks Obtain {{num_Correct_ans}}/10 </p>
             </div>
 
         </div>

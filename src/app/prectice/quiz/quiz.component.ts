@@ -103,10 +103,15 @@ export class QuizComponent {
          console.log("res.result.result.list['21'].sections.A.questions.question=",res.result.result.list['21'].sections.A.questions.question );
 
 
-         this.quiz_Data = res.result.result ;
+         this.quiz_Data = res.result.result.list ;
+         this.quiz_Data = Object.keys(this.quiz_Data);
+
+         console.log("this.quiz_Data =",this.quiz_Data)
+         console.log("this.quiz_Data =",this.quiz_Data[0])
+
          this.subject_21 = res.result.result.list['21'].subject_name ;
          this.subject_22  = res.result.result.list['22'].subject_name;
-         this.commen_Subject_Name = res.result.result.list['21'].subject_name 
+         this.commen_Subject_Name = res.result.result.list['21'].subject_name ;
          this.section_Name = "Section A";
          console.log(this.subject_21)
 
@@ -244,6 +249,10 @@ export class QuizComponent {
       console.log("this.id = ",this.id)
       this.questions = this.questions_array[this.id];
     };
+
+    if(this.id === this.questions_array.length) {
+        this.subject_21_section_B()
+    }
         this.updateButtonVisibility()
         this.quiz_Form.get('options').reset();
   };
@@ -275,7 +284,7 @@ export class QuizComponent {
 
     this.is_Show_Finish_Btn = true
     // here we store the options as key 
-    this.options_as_Key  =  Object.keys(this.questions)
+    this.options_as_Key  =  Object.keys(this.questions);
     console.log("options_as_Key =",this.options_as_Key)
     console.log(this.options_as_Key[4])
     console.log(this.options_as_Key[5])

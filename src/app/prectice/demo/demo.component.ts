@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./demo.component.scss']
 })
 export class DemoComponent {
+
  
 
   serverId : number = 10;
@@ -76,10 +77,29 @@ obs = new Observable((observer) => {
           let star = "*";
           let space = " ";
           console.log(star.repeat(i));
+         
     }
-
+     
+    this.demo()
    };
 
+   // ??? ?
+   demo() {
+    let person =  {
+      name : ["Bob", "Smith"], 
+      age : 32,
+      bio : function() {
+  
+        console.log(`${this.name[0]} is ${this.age} years old.`);
+        console.log("person ssss=",person.name);
+  
+      },
+        
+     };
+   };
 
-
+   
+  
 }
+
+

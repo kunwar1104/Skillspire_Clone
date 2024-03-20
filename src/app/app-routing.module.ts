@@ -7,12 +7,13 @@ import { QuizComponent } from './prectice/quiz/quiz.component';
 
 
 const routes: Routes = [
-  { path: "", 
+  {
+     path: "", 
     redirectTo: '',
     pathMatch : 'full'
   },
   {
-    path: "auth",
+    path: "",
     loadChildren: () => import ('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {

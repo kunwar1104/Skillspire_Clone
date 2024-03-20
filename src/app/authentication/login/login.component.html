@@ -20,7 +20,8 @@
     <form [formGroup]="loginForm" class="commen-form" (ngSubmit)="submit()">
 
       <input class="form-control" type="email" id="email_id" formControlName="email_id"
-        placeholder="Please Enter Emial " required>
+             placeholder="Please Enter Emial " required>
+             
       <span class="error" *ngIf="loginForm.get('email_id').invalid && loginForm.get('email_id').touched">
         <small *ngIf="loginForm.get('email_id').hasError('required')">Email is required</small>
       </span>

@@ -85,11 +85,11 @@ export class AuthService {
     });
     console.log(data)
     return this.http.post(`${this.url}/login`, data, {headers })
-    // .pipe(map ((res :any) => {
-    //      console.log(res)
-    //      console.log(res.accessToken)
-    //      localStorage.setItem("accessToken",res.accessToken)
-    // })) 
+    .pipe(map ((res :any) => {
+         console.log(res)
+         console.log(res.accessToken)
+         localStorage.setItem("accessToken",res.accessToken)
+    })) 
   }
 
 // ****************************************************************************************

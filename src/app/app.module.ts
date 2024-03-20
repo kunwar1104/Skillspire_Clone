@@ -41,9 +41,6 @@ import { QuizComponent } from './prectice/quiz/quiz.component';
         ModalModule.forRoot(),
         CarouselModule.forRoot(),
         BsDropdownModule.forRoot()
-        
-        
-        
     ]
 })
 export class AppModule { }

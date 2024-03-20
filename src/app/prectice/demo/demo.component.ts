@@ -16,7 +16,8 @@ export class DemoComponent {
   allowNewServer = false ;
   title = 'Component Intigration'
   Counter = 5; 
-
+  str : string = "Hello world"; 
+  
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
@@ -54,7 +55,7 @@ obs = new Observable((observer) => {
 
    })  
 
-   ngOnInit(): void {
+  ngOnInit(): void {
 
     this.obs.subscribe(
      {
@@ -80,10 +81,12 @@ obs = new Observable((observer) => {
          
     }
      
-    this.demo()
+    this.demo();
+
+    
    };
 
-   // ??? ?
+   // ??? here console.log is not show find why
    demo() {
     let person =  {
       name : ["Bob", "Smith"], 
@@ -92,14 +95,10 @@ obs = new Observable((observer) => {
   
         console.log(`${this.name[0]} is ${this.age} years old.`);
         console.log("person ssss=",person.name);
-  
-      },
-        
+      }, 
      };
    };
 
-   
-  
 }
 
 

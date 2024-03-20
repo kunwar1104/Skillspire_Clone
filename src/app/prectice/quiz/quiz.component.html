@@ -20,8 +20,10 @@
 
             <div class=" text-center mt-2" *ngIf="is_Time_Over">
                 <button class="btn btn-primary btn-lg ">Time Duration : 00:
-                    {{count_down_time_min}}:{{count_down_time_sec < 10 ? "0" + count_down_time_sec : count_down_time_sec
-                        }}</button><br>
+                    
+                    {{count_down_time_min}}:{{count_down_time_sec < 10 ? "0" + count_down_time_sec : count_down_time_sec }}
+
+                </button><br>
                         <button  class="btn  btn-success mt-3 btn-lg me-2 " (click)="subject_21_F()" >Subject : {{subject_21}}</button>
                         <button  class="btn  btn-success mt-3 btn-lg  " (click)="subject_22_F()" >Subject : {{subject_22}}</button>
 

@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";
+
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+
+.carousel-control-prev-icon  {
+   background-color: rgb(176, 165, 165) !important; 
+}
+.carousel-control-next-icon{
+   background-color: rgb(176, 165, 165) !important; 
+
+}
+ .carousel-control-prev-icon:hover {
+    background-color: white ; 
+    color: black
+ }
+ .carousel-control-next-icon:hover{
+   background-color: white ; 
+   color: black
+ }
+//   .active01{
+//    background-color: blue !important; 
+//    }
+/* Importing Bootstrap SCSS file. */
+@import "./node_modules/bootstrap/scss/bootstrap";

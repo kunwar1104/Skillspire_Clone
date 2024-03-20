@@ -1,28 +1,44 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashbordLayoutComponent } from './layout/dashbord-layout/dashbord-layout.component';
+import { AlertComponent } from 'ngx-bootstrap/alert';
+import { DemoComponent } from './prectice/demo/demo.component';
+import { MaterixComponent } from './prectice/materix/materix.component';
+import { QuizComponent } from './prectice/quiz/quiz.component';
+
 
 const routes: Routes = [
-  { path: "", 
-    redirectTo: 'auth',
+  {
+     path: "", 
+    redirectTo: '',
     pathMatch : 'full'
   },
   {
-    path: "auth",
+    path: "",
     loadChildren: () => import ('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {
-    path: "dashboard",
+    path: "",
     loadChildren: () => import ('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
-  {
-    path: "",
-    loadChildren: () => import ( './shared/shared.module').then(m => m.SharedModule)
-  },
-  {
-    path: 'd-layout',
-    component: DashbordLayoutComponent
-  }
+  
+ {
+   path: 'demo',
+   component : DemoComponent
+ },
+ {
+  path: "materix",
+  component: MaterixComponent
+ },
+ 
+ {
+  path : "quiz",
+  component : QuizComponent
+ }
+  
+  
+ 
+  
+ 
 ];
 
 @NgModule({

@@ -4,21 +4,44 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" routerLink="/dashboard">
+      <img src="../../../assets/logo.png" alt="Skillspire" class="img border border-white">
+      </a>
       <div class="collapse navbar-collapse   " id="navbarTogglerDemo03">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <li class="nav-item ">
+            <a class="nav-link active" routerLink="/dashboard">HOME</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" routerLink="/programs">PROGRAMS</a>
           </li>
-          
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/trainers">TRAINERS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/jobs">JOBS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/blog">BLOGS</a>
+          </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-dark button-color" type="submit">Search</button>
-        </form>
+        <ul class="navbar-nav" *ngIf="isLogedIn" >
+            <li  class="nav-item ">
+              <button  class="sbtn btn btn-outline-light me-3   " routerLink="/my-portal">MY PORTAL</button>
+            </li>
+            <li class="nav-item">
+              <button  class="btn btn-outline-light me-3 sbtn " (click)="logOut()" >LogOut</button>
+            </li>
+        </ul>  
+        
+        <div *ngIf="!isLogedIn"  >
+           <button type="button" class="btn btn-outline-light me-3" (click)=" openLoginModalComponent()">Login</button>
+        </div>
+
+        <div *ngIf="!isLogedIn">
+           <button type="button" class="btn btn-outline-light "  (click)="openSignupModalComponent()">SignUp</button>
+        </div>
+        
       </div>
     </div>
   </nav>

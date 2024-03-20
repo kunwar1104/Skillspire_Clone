@@ -1,0 +1,17 @@
+
+<div class="container main" *ngIf="blog_Details" >
+    <h5 class="pt-5"><b>by {{blog_Details.author}} | {{blog_Details.date.substring(0,10)}}</b></h5>
+    <h2 class="title mt-2">{{blog_Details.title}}</h2>
+
+    <div class="row">
+        <div class="container main-child col-xl-12 col-lg-12 ">
+             <div class="blog_img_container">
+               <img src={{blog_Details.photo}} alt="" class="blog_img">
+             </div>
+             <div >
+                <p class="blog_short_des" >{{blog_Details.short_desc}}</p>
+                <p class="blog_long_des" [innerHTML]=blog_Details.description> </p>
+             </div>
+        </div>
+    </div>
+</div>

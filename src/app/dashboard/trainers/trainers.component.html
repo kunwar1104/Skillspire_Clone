@@ -1,0 +1,71 @@
+<div class="container mb-5" style="background-color: whitesmoke; margin-top: 60px; ">
+    <h1 class="p-4">Trainers</h1>
+
+     <div class="row "   >
+       <div class="col-xl-4 col-lg-4 col-md-6 d-flex justify-content-center" *ngFor="let item of trainers_Data_1">
+            <div class="card mt-5 card-main"  >
+              <div  >
+                <img src="{{item.photo}}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <h5>{{item.name}}</h5>
+                    <p>{{item.designation}}</p>
+                    <p class="card-text">{{item.short_bio.substring(0,80)}}</p>
+                    <a  class="btn" style="color: blue;" (click)="openModal(template)">Read more...</a>
+
+                      <ng-template #template>
+                        <div class="modal-header">
+                          <!-- <h4 class="modal-title pull-left">Modal</h4> -->
+                          <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                            <span aria-hidden="true" class="visually-hidden">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>{{item.short_bio}}</p>
+                          
+                        </div>
+                      </ng-template>
+                  </div>
+              </div>  
+            </div>
+
+       </div>
+     </div>
+
+<!-- View More Button  -->
+
+     <div class="text-center"  >
+     <button class="btn btn-dark mt-3 " *ngIf="page < limit "  (click)="trainers_More_Data()">View More</button>
+    </div>
+
+<!-- Page_2 for View More  card 2  -->
+  <!-- <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-6 d-flex justify-content-center" *ngFor="let item of trainers_Data_2">
+      <div class="card mt-5 card-main"  >
+        <div  >
+          <img src="{{item.photo}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <h5>{{item.name}}</h5>
+              <p>{{item.designation}}</p>
+              <p class="card-text">{{item.short_bio.substring(0,80)}}</p>
+              <a  class="btn" style="color: blue;" (click)="openModal(template)">Read more...</a>
+
+                <ng-template #template>
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-left">Modal</h4>
+                    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+                      <span aria-hidden="true" class="visually-hidden">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>{{item.short_bio}}</p>
+                    
+                  </div>
+                </ng-template>
+            </div>
+        </div>  
+      </div>
+    </div>
+ </div> -->
+</div>

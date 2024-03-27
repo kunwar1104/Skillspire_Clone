@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +15,8 @@ import { DemoComponent } from './prectice/demo/demo.component';
 import { ChildComponent } from './prectice/child/child.component';
 import { MaterixComponent } from './prectice/materix/materix.component';
 import { QuizComponent } from './prectice/quiz/quiz.component';
-// import { appConfig } from './app.config';
+import { StarPatternComponent } from './prectice/star-pattern/star-pattern.component';
+import { ParentChildComponent } from './prectice/parent-child/parent-child.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,9 @@ import { QuizComponent } from './prectice/quiz/quiz.component';
         DemoComponent,
         ChildComponent,
         MaterixComponent,
-        QuizComponent
+        QuizComponent,
+        StarPatternComponent,
+        // ParentChildComponent
     ],
     providers: [
         // appConfig.providers
@@ -41,6 +44,7 @@ import { QuizComponent } from './prectice/quiz/quiz.component';
         ModalModule.forRoot(),
         CarouselModule.forRoot(),
         BsDropdownModule.forRoot()
-    ]
+    ],
+    
 })
 export class AppModule { }

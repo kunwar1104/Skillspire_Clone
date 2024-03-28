@@ -1,0 +1,96 @@
+<app-my-portal></app-my-portal>
+
+<div class="container w-50 mt-5">
+    <div>
+        <form [formGroup]="user_Info"  class="row my-row" (ngSubmit)="submit(user_Info.value)">
+            <div class="col-md-6">
+                <label >First name<span>*</span></label>
+                <input type="text" formControlName="first_name" id="first_name"  class="form-control" aria-label="First name" required>
+                <div class="alert alert-danger" *ngIf="user_Info.get('first_name').invalid && user_Info.get('first_name').touched">
+                    <small *ngIf="user_Info.get('first_name').hasError('required')">First Name is Required</small>
+                    <small *ngIf="user_Info.get('first_name').hasError('pattern')">First Name Require Aplhabat only</small>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label>Last name<span>*</span></label>
+                <input type="text" formControlName="last_name" id="last_name" class="form-control" aria-label="Last name" required>
+                <div class="alert alert-danger" *ngIf="user_Info.get('last_name').invalid && user_Info.get('last_name').touched">
+                    <small *ngIf="user_Info.get('last_name').hasError('required')">Last Name is Required</small>
+                    <small *ngIf="user_Info.get('last_name').hasError('pattern')">Last Name Require Aplhabat only</small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label>Phone No<span>*</span></label>
+                <input type="text" formControlName="phone_no" id="phone_no" class="form-control" aria-label="Last name" required>
+                <div class="alert alert-danger" *ngIf="user_Info.get('phone_no').invalid && user_Info.get('phone_no').touched">
+                    <small *ngIf="user_Info.get('phone_no').hasError('required')">Phone Number is Required</small>
+                    <small *ngIf="user_Info.get('phone_no').hasError('pattern')">Phone Number Requir Number only</small>
+                </div>
+            </div>
+
+            <!-- <div class="col-md-6">
+                <label>Password<span>*</span></label>
+                <br>
+                <input type="text" formControlName="password" id="password" class="form-control" aria-label="Password">
+            </div> -->
+
+            <div class="col-md-6">
+                <label>Secondary Email</label>
+                <input type="text" formControlName="email_id" id="email_id" class="form-control" aria-label="Email Id" required>
+                <div class="alert alert-danger" *ngIf="user_Info.get('email_id').invalid && user_Info.get('email_id').touched">
+                    <small *ngIf="user_Info.get('email_id').hasError('required')">Email is Required</small>
+                    <small *ngIf="user_Info.get('email_id').hasError('pattern')">Please Add  Valid Email Id.</small>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <label>Resume Path</label>
+                <input type="text" formControlName="resume_path" id="resume_path" class="form-control" aria-label="Last name" required>
+                <div class="alert alert-danger" *ngIf="user_Info.get('resume_path').invalid && user_Info.get('email_id').touched">
+                    <small *ngIf="user_Info.get('resume_path').hasError('required')">Resume Path is Required</small>
+                    <!-- <small *ngIf="user_Info.get('resume_path').hasError('pattern')">Please Add .</small> -->
+                </div>
+            </div>
+
+            <div>
+                <div class="form-check">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        I am Student.
+                    <input class="form-check-input" type="checkbox" value=""  id="flexCheckDefault" checked >
+                   
+                    </label>
+
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Wish to receive Newsletter.
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked >
+
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label" for="flexCheckChecked">
+                        Terms & Conditions
+                    <input class="form-check-input" type="checkbox" value="" formControlName="terms" id="flexCheckChecked" checked >
+
+                    </label>
+                </div>
+            </div>
+            <div class="flex-fill" style="width: 100%;">
+                <div>
+                    <p> Status :{{user_Info.status}}</p>
+                    <p class="succ-msg">{{update_Message}}</p>
+                    <button type="submit" class="btn btn-primary save-btn"
+                    [disabled]="user_Info.invalid" >Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- <div class="d-flex">
+       First div with 50% width -->
+    <!-- <div class="flex-fill">
+        </div>
+    </div> --> 
+</div>

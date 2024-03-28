@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,9 +18,11 @@ import { DashboardRoutingModule } from '../dashboard/dashboard-routing.module';
   imports: [
     CommonModule,
     AuthenticationRoutingModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  // for temporory testing purpose 
+  
   exports: [
     LoginComponent,
     SignUpComponent,

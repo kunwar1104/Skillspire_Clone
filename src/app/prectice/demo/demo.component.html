@@ -1,0 +1,25 @@
+<!-- prectics 1 -->
+<p>what {{serverId}} is in this {{serverStatus}} {{ getServerStatus()}} </p>
+
+<!-- prectics 2 -->
+
+<button class="btn btn-primary" 
+ [disabled]="!allowNewServer">Allow Server</button>
+
+ <!-- prectics 3 -->
+ <!-- property binding -->
+ <p>{{allowNewServer}}</p>
+
+ <!-- prectics 4 -->
+<!-- String Interpolation -->
+ <p [innerText]="allowNewServer"></p>
+
+ <!-- prectic 5  -->
+ <h2>prectic 5</h2><br>
+ <app-child [count]="Counter"></app-child>
+ <h1>Welcome to {{title}}!</h1>
+ <button (click)="increment()">Increment</button>
+ <button (click)="decrement()">decrement</button>
+ <button (click)="demo()">demo</button>
+ <!-- prectic 6  -->
+  

@@ -1,0 +1,51 @@
+.main{
+  width: 100%;
+}
+.modal-body{
+  width: 1000px;
+}
+
+#btn{
+  margin-left: 15px;
+  padding-left: 110px;
+  padding-right: 109px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: white;
+  border: 1px solid #00B6F0;
+  color: #00B6F0;
+}
+.my-row{
+  padding-left: 10px;
+  height: 500px;
+  background-color: whitesmoke;
+}
+span{
+color: red;
+}
+.Lastcontainer{
+height: 250px;
+display: flex;
+}
+.checkdiv{
+width: 50%;
+height: 250px;
+
+}
+.savediv{
+width: 50%;
+height: 250px;
+}
+.save-btn{
+  padding: 15px 30px;
+  background-color: #00B6F0;
+  margin-left: 500px;
+}
+.save-btn:disabled{
+  cursor: not-allowed;
+}
+.succ-msg{
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+}

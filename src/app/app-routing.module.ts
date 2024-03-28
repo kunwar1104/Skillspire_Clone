@@ -1,9 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashbordLayoutComponent } from './layout/dashbord-layout/dashbord-layout.component';
+import { AlertComponent } from 'ngx-bootstrap/alert';
+import { DemoComponent } from './prectice/demo/demo.component';
+import { MaterixComponent } from './prectice/materix/materix.component';
+import { QuizComponent } from './prectice/quiz/quiz.component';
+import { StarPatternComponent } from './prectice/star-pattern/star-pattern.component';
+import { ParentChildComponent } from './prectice/parent-child/parent-child.component';
+
 
 const routes: Routes = [
-  { path: "", 
+  {
+     path: "", 
     redirectTo: '',
     pathMatch : 'full'
   },
@@ -13,17 +20,43 @@ const routes: Routes = [
     loadChildren: () => import ('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
   {
-    path: "auth",
+    path: "",
     loadChildren: () => import ('./authentication/authentication.module').then(m => m.AuthenticationModule)
   },
   {
     path: "",
-    loadChildren: () => import ( './shared/shared.module').then(m => m.SharedModule)
+    loadChildren: () => import ('./dashboard/dashboard.module').then(m => m.DashboardModule)
   },
-  {
-    path: 'd-layout',
-    component: DashbordLayoutComponent
-  }
+  
+ {
+   path: 'demo',
+   component : DemoComponent
+ },
+ {
+  path: "materix",
+  component: MaterixComponent
+ },
+ {
+  path : "quiz",
+  component : QuizComponent
+ },
+ {
+  path: "star",
+  component : StarPatternComponent
+ },
+ {
+  path: "parent-child",
+  component: ParentChildComponent
+ },
+ {
+  path: "",
+  loadChildren: () => import ('./prectice/parent-child/parent.module').then(m => m.ParentModule) 
+}
+  
+  
+ 
+  
+ 
 ];
 
 @NgModule({

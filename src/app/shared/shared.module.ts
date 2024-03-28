@@ -2,19 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoaderComponent } from './loader/loader.component';
 import { NotificationComponent } from './notification/notification.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
     LoaderComponent,
     NotificationComponent,
+    // DashbordLayoutComponent,
     // HeaderComponent,
-    // FooterComponent
+// /    FooterComponent
   ],
   imports: [
     CommonModule,
+    AlertModule.forRoot(),
+    
+    
   ],
   // here we export some component for root file & and for other module
   exports: [

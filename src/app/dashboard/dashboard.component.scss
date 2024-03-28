@@ -1,0 +1,337 @@
+#img{
+    min-height: 400px;
+    max-height: 400px;    
+    opacity: 0.2;
+}
+.dash-main{
+  margin-top: 56px;
+}
+.dash_slide_text1{
+  margin-top: 130px;
+  font-weight: bold;
+}
+.dash_slide_text2{
+  margin-top: 95px;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
+.main_dash_slide{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dash_slide{
+  height: 400px;
+  background-color: rgb(170, 165, 158);
+  text-align: center;
+  // margin-top: 50px;
+}
+
+.img:hover{
+  opacity: 1.0;
+
+}
+#img :hover{
+  opacity: 1.0;
+}
+.text-colour{
+    color: black;
+    font-size: 35px;
+    font-weight: bolder;
+}
+.register-button{
+  height: 60px;
+  width: 100px;
+  font-size: 20px;
+  font-weight: bold;
+  
+  color: black;
+}
+#cover-img{
+        width: 100%;
+        object-fit: cover;
+        height: 400px;
+}
+ .carousel-control-prev-icon,  .carousel-control-next-icon{
+  background-color: greenyellow ;   
+  border-radius: 5px;
+}
+// Aboutus page
+// col 1
+.aboutUs-conatiner{
+    text-align: center;
+ }
+ .aboutUs-box{
+    width: 600px;
+    margin-left: 50px;
+    margin-top: 20px;
+    height: 400px;
+    border-radius: 1px 60px 1px;
+    background-color:whitesmoke;
+}
+.aboutUs{
+    height: 700px;
+    background-color: whitesmoke;
+}
+
+.aboutUs-text{
+    color: black;
+    height: 300px;
+    margin-left: 20px;
+    width: 400px;
+    margin-left: 85px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    // font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.aboutUs-title{
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: bold;
+  font-size: 45px;
+
+}
+.aboutUs-image{
+    max-height: 40%;
+    min-height: 40%;
+    // object-fit: cover;
+}
+.ab-img{
+    width: 100%;
+}
+
+$color-primary-white: rgb(240, 240, 240);
+
+//  Media Query  
+
+@media (max-width: 576px) {
+  .aboutUs-text , .aboutUs-title { font-size: 10px;  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .aboutUs-text, .aboutUs-title  { font-size: 15px;  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  .aboutUs-text , .aboutUs-title { font-size: 20px;  }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+  .aboutUs-text  { font-size: 25px;  }
+  .aboutUs-title {font-size: 30px;}
+
+}
+
+@media (min-width: 1201px) {
+  .aboutUs-text { font-size: 20px;  }
+  .aboutUs-title {font-size: 35px;}
+}
+
+// Programs Section 
+.Programs-Container{
+  width: 100%;
+  height: 711px;
+ 
+  background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-color: rgba(33, 37, 41, 1) !important;
+  
+  
+}
+.sbtn{
+font-weight: bold;
+}
+.sbtn:hover {
+  background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-color: rgba(33, 37, 41, 1) ;
+  font-weight: bold;
+  color: white;
+}
+
+.Mycarasoule{
+  width: 75%;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+}
+.my-slide {
+  width: 50px;
+  // background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)) !important;
+  // background-color: rgba(33, 37, 41, 1) !important ;
+  margin-left: 5px;
+  border-radius: 5px;
+  text-align: center;
+  // color: white ;
+
+}
+// .my-slide:hover{
+//   background-color: white;
+//   color: black;
+//   border-radius: 10px;
+//   text-decoration: none;
+// }
+.my-slide-text{
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0)) !important;
+  background-color: rgb(33, 37, 41) ;
+  text-decoration: none;
+  width: 300px;
+  display: inline-block;
+  width: 357px;
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid white;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 20px;
+}
+.my-slide-text.active{
+background-color: blue !important; 
+}
+// .active{
+//   background-color: blue ;
+// }
+.my-slide-text:hover{
+color: black;
+background-color: white;
+}
+.left-right-main{
+  // background-color: rgb(84, 88, 88);
+  height: 600px;
+  margin: auto;
+}
+.left-side{
+ 
+  background-color: rgb(65, 67, 66);
+}
+
+.left-side-buttons{
+  height: 40px;
+  width: 100%;
+  border-radius:10px ;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.left-side-buttons:hover{
+  height: 40px;
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+.left-side-buttons.active{
+ background-color: blue;
+}
+.left-side-button-main{
+  margin-top: 45px;
+  // background-color: beige;
+
+}
+.hr{
+  color: white;
+}
+
+// Right side
+// .right-side{
+//   // background-color: rgb(72, 157, 129);
+//   }
+.right-side-card{
+  height: 600px;
+  margin-top: 13px;
+}
+.bi-record-fill{
+  color: red;
+}
+.card-img-top{
+  height: 210px ;
+  }
+.card-img-bottom{
+  width: 75px;
+  border-radius: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+.image-backround{
+  width: 100%;
+  background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-color: rgba(33, 37, 41, 1) !important;
+  height: 85px;
+  border-radius: 10px;
+}
+.cared-trainer-name{
+  display: flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  color: white;
+}
+// Popular Trainer Page
+.trainer-carasoule{
+  width: 75%;
+  height: 50px;
+  
+  padding-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.trainer-slide{
+  margin: auto;
+  width: 50px;
+  border-width:5px; 
+  // background-color: aqua;
+  border-color: salmon ;
+  border-radius: 5px;
+  text-align: center;
+  height: 500px;
+  padding-left: 50px;
+
+}
+.my-arrow{
+  background-color: aqua;
+  margin-left: 5px;
+}
+.trainer-card-img-top{
+  border: 10px solid rgb(205, 205, 205);
+  border-radius: 5px;
+}
+.Stories-carousel{
+  height: 500px;
+  
+}
+.Popular-Trainers{
+  height: 600px;
+}
+.Success-story{
+  height: 550px;
+}
+.Success-slide{
+  
+  width: 70%;
+  border-width:5px; 
+  background-color: rgb(249, 243, 243);
+  margin: auto;
+  border-radius: 5px;
+  text-align: center;
+  height: 500px;
+  padding-left: 50px;
+}
+.Success-slide-main{
+  width: 70%;
+  margin: auto;
+}
+.success-img-top{
+  width: 400px;
+  height: 400px;
+  margin-top: 20px;
+  border-radius: 10px;
+
+}
+.card-body{
+  margin-left: 10px;
+}
+.blogs{
+  height: 600px;
+  background-image : linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
+  background-color: rgba(33, 37, 41, 1) !important;
+}

@@ -1,0 +1,339 @@
+<div class="w-100 main   " style="border: 1px solid black;">
+
+    <div class="row">
+
+        <!-- Left Side  -->
+        <div class="w-50 ">
+
+            <div class="container p-5">
+
+                <div class="row  ms-2">
+                    <h4 class="col">{{cardDetails.title}}</h4>
+                    <p class="col ">{{cardDetails.program_type}}</p>
+                </div>
+                <p class="p-3">{{cardDetails.short_desc}}</p>
+                <!-- Time & Duration  -->
+                <div class="d-flex w-100 p-3  ">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="24" fill="currentColor"
+                            class="bi bi-clock" viewBox="0 0 16 16">
+                            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+                        </svg>&nbsp;
+                        <p class="d-inline">Duration</p>
+                    </div>
+                    &nbsp;&nbsp;
+                    <div>
+                        <p>{{cardDetails.duration}}</p>
+                    </div><br><br>
+
+                    <div class="ms-5">{{cardDetails.prog_languages}} </div>
+                    <!-- <hr style="border: 2px solid black;"> -->
+
+                </div>
+
+                <div class="p-3">
+                    <p>Class Type:
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="23" fill="currentColor"
+                            class="bi bi-record-fill  " viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10" />
+                        </svg><b>{{cardDetails.delivery_type}}</b>
+                    </p>
+                </div>
+
+                <button class="btn btn-dark   ms-4">Enroll Now</button>
+
+            </div>
+        </div>
+
+        <div class="w-50">
+            <img src="{{cardDetails.photo}}" alt="" class="right-img">
+        </div>
+
+    </div>
+</div>
+<!-- Session Details -->
+<div>
+    <section class="pt-5">
+        <div class="container">
+            <div class="row main-details programs-main-details">
+                <div class="col-xl-12 col-lg-12">
+                    <h2>What will you learn?</h2>
+                    <p class="text-justify">
+                    <ul>
+                        <li>
+                            <span style="font-size: 13px;">Increases your ability to focus.</span>
+                        </li>
+                        <li>
+                            <span style="font-size: 13px;">Increases your comprehension.</span>
+                        </li>
+                        <li>
+                            <span style="font-size: 13px;">You will be able to understand and process more information.
+                            </span>
+                        </li>
+                        <li>
+                            <span style="font-size: 13px;">Improves your memory.</span>
+                        </li>
+                        <li>
+                            <span style="font-size: 13px;">Inspire your creativity.</span>
+                        </li>
+                        <li>
+                            <span style="font-size: 13px;">Engages your mind.</span>
+                        </li>
+                        <li>
+                            <span style="font-size: 13px;">Extend your attention span.</span>
+                        </li>
+                        <li>
+                            <span style="font-size: 13px;">Improves your organization of information.</span>
+                        </li>
+                    </ul>
+                    <!-- </p> -->
+                    <div class="mt-5 certification-p text-justify">
+                        <h2>Certification Course</h2>
+                        
+                    </div>
+                    <div class="text-justify">
+                        <ul></ul>
+                    </div>
+                    <div class="sessions-b mt-5" *ngFor="let item of session_Details let i=index;">
+                        <h2 class="mb-5"> 8 Sessions | 00 Hour 30 Minutes </h2>
+
+                        <div class="row mb-5">
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
+                                <div class="session-line bg-white">
+                                    <h4>Session <span>{{i+1}}</span></h4>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-8">
+                                <div class="media">
+                                    <img alt="sessions" class="mr-3 img-fluid"
+                                        src="{{item.thumbnail}}">
+                                    <div class="media-body">
+                                        <h4 class="mb-0">{{item.title}}</h4>
+                                        <p class="name mb-1">{{item.name}}</p>
+                                        <p>{{item.name}}</p>
+                                        <p class="mb-0 date-time">
+                                            <img src="assets/images/small-clock.png" alt="small-clock" class="mr-1">&nbsp;
+                                            <span>{{item.duration}}</span><span
+                                                class="mr-2 ml-2"></span>
+                                        </p>
+                                        <span class="title-border"></span>
+                                        <div class="description-fix-height">
+                                            <p>
+                                                <span [innerHTML]="item.description"></span>
+                                            </p>
+                                        </div>
+                                        <div class="readmore mt-2">Read more
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row mb-5">
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
+                                <div class="session-line bg-white">
+                                    <h4>Session <span>2</span></h4>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-8">
+                                <div class="media"><img alt="sessions" class="mr-3 img-fluid"
+                                        src="https://s3.ap-south-1.amazonaws.com/skillspire.production/storage/Session/2022/February/2075712169/1644683750635069636.png">
+                                    <div class="media-body">
+                                        <h4 class="mb-0">Increases your ability to focus and comprehend</h4>
+                                        <p class="name mb-1">By Mr. Mihirsinh Parmar </p>
+                                        <p class="mb-0 date-time"><img src="assets/images/small-clock.png"
+                                                alt="small-clock" class="mr-1"><span>00 Hour 05
+                                                Minutes</span><span
+                                                class="mr-2 ml-2"></span></p><span
+                                            class="title-border"></span>
+                                        <div class="description-fix-height">
+                                            <p><span>If you're choosing to type your notes, it's quite easy for your
+                                                    attention to draw away from the task we need to focus on. People
+                                                    can't multitask well. we believe we can do it all - listen and pay
+                                                    attention while working but we can't.</span><br></p>
+                                        </div>
+                                        <div class="readmore mt-2">Read more</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="row mb-5">
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
+                                <div class="session-line bg-white">
+                                    <h4>Session <span>3</span></h4>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-8">
+                                <div class="media"><img alt="sessions" class="mr-3 img-fluid"
+                                        src="https://s3.ap-south-1.amazonaws.com/skillspire.production/storage/Session/2022/February/1341724278/1644684035673313699.png">
+                                    <div class="media-body">
+                                        <h4 class="mb-0">You will be able to understand and process more Information
+                                        </h4>
+                                        <p class="name mb-1">By Mr. Mihirsinh Parmar </p>
+                                        <p class="mb-0 date-time"><img src="assets/images/small-clock.png"
+                                                alt="small-clock" class="mr-1"><span>00 Hour 04
+                                                Minutes</span><span
+                                                class="mr-2 ml-2"></span></p><span
+                                            class="title-border"></span>
+                                        <div class="description-fix-height">
+                                            <p><span>People who take notes on their laptops type quicker than those who
+                                                    write, resulting in verbatim notes and a shallower kind of cognitive
+                                                    processing. Those who write with pens tend to take shorter, more
+                                                    direct notes. Paper also provides for more versatility in
+                                                    note-taking.</span><br></p>
+                                        </div>
+                                        <div class="readmore mt-2">Read more</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="row mb-5">
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
+                                <div class="session-line bg-white">
+                                    <h4>Session <span>4</span></h4>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-8">
+                                <div class="media"><img alt="sessions" class="mr-3 img-fluid"
+                                        src="https://s3.ap-south-1.amazonaws.com/skillspire.production/storage/Session/2022/February/1128153859/1644684477542697373.png">
+                                    <div class="media-body">
+                                        <h4 class="mb-0">Inspire your creativity and Engages your mind</h4>
+                                        <p class="name mb-1">By Mr. Mihirsinh Parmar </p>
+                                        <p class="mb-0 date-time"><img src="assets/images/small-clock.png"
+                                                alt="small-clock" class="mr-1"><span>00 Hour 04
+                                                Minutes</span><span
+                                                class="mr-2 ml-2"></span></p><span
+                                            class="title-border"></span>
+                                        <div class="description-fix-height">
+                                            <p><span>Typing may be a monotonous affair with little possibility for
+                                                    creativity. Take use of your unrestrained creativity throughout your
+                                                    handwritten note-taking session. Notes that are creative might make
+                                                    editing them afterwards more enjoyable to look at.</span><br></p>
+                                        </div>
+                                        <div class="readmore mt-2">Read more</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="row mb-5">
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
+                                <div class="session-line bg-white">
+                                    <h4>Session <span>5</span></h4>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-8">
+                                <div class="media"><img alt="sessions" class="mr-3 img-fluid"
+                                        src="https://s3.ap-south-1.amazonaws.com/skillspire.production/storage/Session/2022/February/1467972816/1644684538510681431.png">
+                                    <div class="media-body">
+                                        <h4 class="mb-0">Extend your attention span</h4>
+                                        <p class="name mb-1">By Mr. Mihirsinh Parmar </p>
+                                        <p class="mb-0 date-time"><img src="assets/images/small-clock.png"
+                                                alt="small-clock" class="mr-1"><span>00 Hour 02
+                                                Minutes</span><span
+                                                class="mr-2 ml-2"></span></p><span
+                                            class="title-border"></span>
+                                        <div class="description-fix-height">
+                                            <p><span>Handwriting necessitates extra concentration since it involves both
+                                                    mental and bodily effort. You will be able to focus for longer
+                                                    periods of time as time goes on.</span><br></p>
+                                        </div>
+                                        <div class="readmore mt-2">Read more</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="row mb-5">
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
+                                <div class="session-line bg-white">
+                                    <h4>Session <span>6</span></h4>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-8">
+                                <div class="media"><img alt="sessions" class="mr-3 img-fluid"
+                                        src="https://s3.ap-south-1.amazonaws.com/skillspire.production/storage/Session/2022/February/717203581/16446846082107037242.png">
+                                    <div class="media-body">
+                                        <h4 class="mb-0">Improve Your Organizational Skills</h4>
+                                        <p class="name mb-1">By Mr. Mihirsinh Parmar </p>
+                                        <p class="mb-0 date-time"><img src="assets/images/small-clock.png"
+                                                alt="small-clock" class="mr-1"><span>00 Hour 06
+                                                Minutes</span><span
+                                                class="mr-2 ml-2"></span></p><span
+                                            class="title-border"></span>
+                                        <div class="description-fix-height">
+                                            <p><span>Learning to organize one's thoughts is a crucial skill. Handwriting
+                                                    notes encourage you to slow down and plan ahead of time so that you
+                                                    don't spend time writing them down.</span><br></p>
+                                        </div>
+                                        <div class="readmore mt-2">Read more</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="row mb-5">
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
+                                <div class="session-line bg-white">
+                                    <h4>Session <span>7</span></h4>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-8">
+                                <div class="media"><img alt="sessions" class="mr-3 img-fluid"
+                                        src="https://s3.ap-south-1.amazonaws.com/skillspire.production/storage/Session/2022/February/1056761098/1644684674658069369.png">
+                                    <div class="media-body">
+                                        <h4 class="mb-0">Improve your prioritizing skills</h4>
+                                        <p class="name mb-1">By Mr. Mihirsinh Parmar </p>
+                                        <p class="mb-0 date-time"><img src="assets/images/small-clock.png"
+                                                alt="small-clock" class="mr-1"><span>00 Hour 04
+                                                Minutes</span><span
+                                                class="mr-2 ml-2"></span></p><span
+                                            class="title-border"></span>
+                                        <div class="description-fix-height">
+                                            <p><span>If you wish to write your notes successfully by hand, prioritizing
+                                                    is a talent that develops out of necessity. Your prioritizing
+                                                    abilities will increase as your handwriting stamina
+                                                    grows.</span><br></p>
+                                        </div>
+                                        <div class="readmore mt-2">Read more</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- <div class="row mb-5">
+                            <div class="col-xl-2 col-lg-2 col-md-3 col-sm-4">
+                                <div class="session-line bg-white">
+                                    <h4>Session <span>8</span></h4>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-9 col-sm-8">
+                                <div class="media"><img alt="sessions" class="mr-3 img-fluid"
+                                        src="https://s3.ap-south-1.amazonaws.com/skillspire.production/storage/Session/2022/February/842864343/16446848131639448766.png">
+                                    <div class="media-body">
+                                        <h4 class="mb-0">Provides a condensed document for study</h4>
+                                        <p class="name mb-1">By Mr. Mihirsinh Parmar </p>
+                                        <p class="mb-0 date-time"><img src="assets/images/small-clock.png"
+                                                alt="small-clock" class="mr-1"><span>00 Hour 01
+                                                Minute</span><span class="mr-2 ml-2"></span>
+                                        </p><span class="title-border"></span>
+                                        <div class="description-fix-height">
+                                            <p><span>Since it would be much slower and a huge waste of time to write
+                                                    everything, naturally the document that you would have a very
+                                                    precise and condensed document in the end.</span><br></p>
+                                        </div>
+                                        <div class="readmore mt-2">Read more</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

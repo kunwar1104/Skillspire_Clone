@@ -1,0 +1,56 @@
+.main-div{
+  background-color: whitesmoke;
+  height: 655px;
+  width: 100vw;
+  border-radius: 10px;
+}
+.titles{
+    background-color: skyblue;
+//   margin-top: 10px;
+  text-align: center;
+  height: 110px;
+  border-radius: 15px 15px 0px 0px ;
+//   padding-bottom: 20px;
+}
+// .form{
+//   background-color: aliceblue;
+// }
+.que_ans_space{
+  height: 341px;
+  background-color: white;
+  border-radius: 00px 00px 20px 20px;
+}
+.ques-col-1{
+  // width: 450px;
+  display: flex;
+  // background-color: skyblue;
+  // margin-left: 20px;
+  align-items: baseline;
+}
+.ques-col-2{
+  width: 450px;
+  display: flex;
+  // background-color: skyblue;
+  margin-left: 20px;
+  align-items: baseline;
+
+}
+.form-option{
+  width: 100px;
+  background-color: white;
+}
+.form-input{
+  width: 221px;
+  height: 100px;
+  border-radius: 0px 10px 0;
+  display: inline-flex;
+  background-color: #ffd9d9;
+  margin-top: 10px;
+  margin-left: 5px;
+  align-items: baseline;
+}
+.result{
+  background-color: aliceblue;
+  height: 500px;
+  
+}

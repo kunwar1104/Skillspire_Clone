@@ -4,6 +4,8 @@ import { AlertComponent } from 'ngx-bootstrap/alert';
 import { DemoComponent } from './prectice/demo/demo.component';
 import { MaterixComponent } from './prectice/materix/materix.component';
 import { QuizComponent } from './prectice/quiz/quiz.component';
+import { StarPatternComponent } from './prectice/star-pattern/star-pattern.component';
+import { ParentChildComponent } from './prectice/parent-child/parent-child.component';
 
 
 const routes: Routes = [
@@ -29,11 +31,22 @@ const routes: Routes = [
   path: "materix",
   component: MaterixComponent
  },
- 
  {
   path : "quiz",
   component : QuizComponent
- }
+ },
+ {
+  path: "star",
+  component : StarPatternComponent
+ },
+ {
+  path: "parent-child",
+  component: ParentChildComponent
+ },
+ {
+  path: "",
+  loadChildren: () => import ('./prectice/parent-child/parent.module').then(m => m.ParentModule) 
+}
   
   
  

@@ -6,6 +6,7 @@ import { MaterixComponent } from './prectice/materix/materix.component';
 import { QuizComponent } from './prectice/quiz/quiz.component';
 import { StarPatternComponent } from './prectice/star-pattern/star-pattern.component';
 import { ParentChildComponent } from './prectice/parent-child/parent-child.component';
+import { FormComponent } from './prectice/form/form.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,10 @@ const routes: Routes = [
  {
   path: "",
   loadChildren: () => import ('./prectice/parent-child/parent.module').then(m => m.ParentModule) 
+},
+{
+  path: "form-prectice",
+  component : FormComponent
 }
   
   

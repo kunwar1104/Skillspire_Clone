@@ -14,7 +14,7 @@ import { catchError } from 'rxjs';
 })
 export class LoginComponent {
 
-  loginForm!: FormGroup | any;
+  loginForm: FormGroup | any;
   title?: string;
   closeBtnName?: string;
   list: string[] = [];

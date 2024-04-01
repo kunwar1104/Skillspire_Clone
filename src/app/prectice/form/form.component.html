@@ -1,0 +1,27 @@
+<p>form works!</p>
+
+<div>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+
+        <div>
+            <input type="text" formControlName="firstName" name="firstName" placeholder="Please Enter First Name">
+        </div>
+        <div>
+            <input type="text" formControlName="lastName" name="lastName" placeholder="Please Enter Last Name">
+        </div>
+        <div type="text"  formGroupName="address">
+            
+            <div>
+                <input type="text" formControlName="city" name="city" placeholder="Please Enter City">
+            </div>
+            <div>
+                <input type="text" formControlName="street" name="street" placeholder="Please Enter Street">
+            </div>
+            <div>
+                <input type="text" formControlName="pincode" name="pincode" placeholder="Please Enter Pincode">
+            </div>
+        </div>
+    
+              <button type="submit">Submit</button>
+    </form>
+</div>

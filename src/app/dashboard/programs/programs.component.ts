@@ -31,6 +31,8 @@ export class ProgramsComponent {
   trainerData: any;
   is_card_Hide : boolean = true;
 
+  
+
   public subscription!: Subscription
 
   constructor(private programsApi: ProgramsService,
@@ -67,13 +69,17 @@ export class ProgramsComponent {
   
   get_Programs_Data() {
     this.programsApi.getProgramsPage(this.queryParams_data, this.sortBy).subscribe((res: any) => {
+      console.log(res)
       this.programsCard = res.DATA.programs
-
+        console.log(this.programsCard)
       console.log("queryParams_data =", this.queryParams_data)
       console.log("sortBy =", this.sortBy)  // here "sortBy" variable have value "satrt_Date" which store in variable 
       console.log("", res)
     })
+
   }
+  // Async Pipe 
+
   // On scoll API call  
   @HostListener('window:scroll', ["$event"])
   onScroll(event: Event) {

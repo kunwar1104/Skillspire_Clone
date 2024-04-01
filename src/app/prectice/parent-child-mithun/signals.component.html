@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="filter-wrapper mb-2"> 
+            <div class="filter-section">
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-primary btn-common" (click) = "addSignalPopup()">
+                        Add signal
+                    </button>
+                </div>
+            </div>
+        </div> 
+        <tabset [justified]="true" #staticTabs>
+            <tab [heading]="activeTab"  (selectTab)="onSelectTab($event)">
+                <gridview-list 
+                        [tableHeaders]="tableHeaders_activeSignals" 
+                        [rows]="rows" 
+                        [page]="page" 
+                        [showLoader]="showLoader"
+                        (headerClicked)="handleTableHeaderClick($event)" 
+                        (pageChanged)="handlePageChanged($event)" 
+                        (pageLimitChange)="itemPerPageChange($event)"
+                        (openPopupEvent)="updateSignalPopup($event)"
+                        (openPopupViewEvent)="viewSignal($event)"
+                        (openPopupConfirmEvent)="closedSignal($event)"
+                        >
+                </gridview-list>
+            </tab>
+            <tab [heading]="closedTab"  (selectTab)="onSelectTab($event)"> 
+                <gridview-list 
+                        [tableHeaders]="tableHeaders_closeSignals" 
+                        [rows]="this.rows" 
+                        [page]="page"
+                        [showLoader]="showLoader"
+                        (headerClicked)="handleTableHeaderClick($event)" 
+                        (pageChanged)="handlePageChanged($event)" 
+                        (openPopupViewEvent)="viewSignal($event)"
+                        (pageLimitChange)="itemPerPageChange($event)">
+                </gridview-list>
+            </tab>
+        </tabset>     
+                    
+    </div>
+</div>

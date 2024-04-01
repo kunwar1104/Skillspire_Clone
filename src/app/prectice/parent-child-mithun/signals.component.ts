@@ -1,13 +1,13 @@
 import { ChangeDetectorRef, Component, ViewChild } from "@angular/core";
-// import { GRID_COLUMN } from "src/app/shared/models/gridheader.model";
-// import { Page } from "src/app/shared/models/page";
-// import { CommonService } from "src/app/shared/services/common.service";
-// import { AddSignalComponent } from "../signal-add/add-signal.component";
-// import { SignalsService } from "src/app/shared/services/signals.service";
-// import { BsModalRef, BsModalService, ModalOptions } from "ngx-bootstrap/modal";
-// import { NotificationService } from "src/app/shared/services/notification.service";
-// import { UpdateSignalComponent } from "../signal-update/update-signal.component";
-// import { ConfirmationDialogComponent } from "src/app/shared/components/confirmation-dialog/confirmation-dialog.component";
+import { GRID_COLUMN } from "src/app/shared/models/gridheader.model";
+import { Page } from "src/app/shared/models/page";
+import { CommonService } from "src/app/shared/services/common.service";
+import { AddSignalComponent } from "../signal-add/add-signal.component";
+import { SignalsService } from "src/app/shared/services/signals.service";
+import { BsModalRef, BsModalService, ModalOptions } from "ngx-bootstrap/modal";
+import { NotificationService } from "src/app/shared/services/notification.service";
+import { UpdateSignalComponent } from "../signal-update/update-signal.component";
+import { ConfirmationDialogComponent } from "src/app/shared/components/confirmation-dialog/confirmation-dialog.component";
 // import { ViewListDialogComponent } from "../view-list-dialog/view-list-dialog.component";
 import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 
